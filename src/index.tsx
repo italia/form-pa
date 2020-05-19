@@ -8,16 +8,25 @@ import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
 import { Actions, jsonformsReducer } from "@jsonforms/core";
-import { person } from "@jsonforms/examples";
+import schema from "./schema.json";
+// import uischema from "./uischema.json";
 import {
   materialRenderers,
   materialCells,
 } from "@jsonforms/material-renderers";
 import { JsonFormsReduxContext } from "@jsonforms/react";
 
-const schema = person.schema;
-const uischema = person.uischema;
-const data = person.data;
+// Setup Redux store
+const data = {
+  id: 1,
+  name: "Mario",
+  last_name: "Rossi",
+  address: "Via Roma 1",
+  cap: "00100",
+  province: "RM",
+  city: "Roma",
+  country: "Italia",
+};
 
 const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   jsonforms: {
@@ -26,7 +35,7 @@ const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   },
 });
 
-store.dispatch(Actions.init(data, schema, uischema));
+store.dispatch(Actions.init(data, schema, undefined));
 
 ReactDOM.render(
   <React.StrictMode>
