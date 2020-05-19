@@ -3,7 +3,11 @@ import { Col, Button, DropdownToggle, LinkListItem, DropdownMenu, Header, Header
 
 import React from "react";
 
-function HeaderBar(props: { className: string | undefined; }) {
+export interface Props {
+  className: string | undefined;
+}
+
+export const HeaderBar = (props: Props) => {
   return (
     <Header small={false} theme="" type="slim" className={props.className}>
       <HeaderContent>
@@ -24,7 +28,8 @@ function HeaderBar(props: { className: string | undefined; }) {
                   widths={["xs", "sm", "md", "lg", "xl"]}
                 >
                   <LinkList tag="div">
-                    <LinkListItem href="#">{/* tag={function noRefCheck() {}} */}
+                    <LinkListItem href="#">
+                      {/* tag={function noRefCheck() {}} */}
                       <span>ITA</span>
                     </LinkListItem>
                     <LinkListItem href="#">
@@ -52,6 +57,6 @@ function HeaderBar(props: { className: string | undefined; }) {
       </HeaderContent>
     </Header>
   );
-}
+};
 
-export default HeaderBar;
+// export default HeaderBar;

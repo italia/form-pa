@@ -2,7 +2,7 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 
-import HeaderBar from "./components/HeaderBar";
+import { HeaderBar } from "./components/HeaderBar";
 import { JsonFormsDispatch } from "@jsonforms/react";
 // @ts-ignore
 import { Button, Container } from "design-react-kit";
@@ -12,7 +12,7 @@ import "typeface-titillium-web";
 import "typeface-roboto-mono";
 import "typeface-lora";
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <HeaderBar className="App-header" />
@@ -28,5 +28,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
