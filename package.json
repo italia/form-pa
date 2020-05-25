@@ -15,8 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "react-scripts test",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },
   "dependencies": {
