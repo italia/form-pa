@@ -24,7 +24,7 @@ Then `./dist` will be ready to be served.
 
 
 ### Docker
-Run with a preset json schema, stored in `src/schema.json`
+Run with a preset json schema, stored in `schema/schema.json`
 ```bash
 $ docker build . -t form-pa
 $ docker run -it --rm form-pa
@@ -32,6 +32,6 @@ $ docker run -it --rm form-pa
 
 Or simply run docker replacing that schema with one supplied at runtime as:
 ```bash
-$ docker build -f Dockerfile.dev . form-pa:dev
-$ docker run -v ${PWD}/schema.json.example:/app/src/schema.json -it --rm -p 3000:3000 form-pa
+$ docker build -f Dockerfile.dev . -t form-pa:dev
+$ docker run -v ${PWD}/schema.json.example:/app/schema/schema.json -it --rm -p 3000:3000 form-pa
 ```

@@ -1,10 +1,25 @@
 # Stage 0, "run-stage".
-FROM node:lts
-WORKDIR /app
-COPY package*.json /app/
+FROM node:lts-alpine
 
-# First install deps, then copy app and build.
+ENV HOME /usr/src/app/
+ENV USER developers
+
+WORKDIR ${HOME}
+
+# RUN apk add ca-certificates
+
+COPY package*.json ./
 RUN npm install
-COPY ./ /app/
+COPY tsconfig.json .
+COPY jest.config.js .
+COPY src src
+COPY public public
+
+RUN adduser --home ${HOME} --shell /bin/sh --disabled-password ${USER}
+
+RUN chown -R ${USER}.${USER} ${HOME}
+
+
+USER ${USER}
 
 ENTRYPOINT [ "npm", "start" ]
