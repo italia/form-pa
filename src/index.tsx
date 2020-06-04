@@ -8,8 +8,8 @@ import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
 import { Actions, jsonformsReducer } from "@jsonforms/core";
-import schema from "./schema.json";
-// import uischema from "./uischema.json";
+import schema from "./schema/schema.json";
+// import uischema from "../schema/uischema.json";
 import {
   materialRenderers,
   materialCells,
