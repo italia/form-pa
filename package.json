@@ -4,12 +4,12 @@
   "private": true,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.2.1",
-    "@types/jest": "26.0.0",
-    "@types/react": "16.9.36",
+    "@testing-library/react": "^10.4.3",
+    "@types/jest": "26.0.3",
+    "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
     "react-scripts": "^3.4.1",
-    "ts-jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "typescript": "3.9.5"
   },
   "scripts": {
@@ -20,14 +20,14 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@jsonforms/core": "^2.3.2",
-    "@jsonforms/examples": "^2.3.2",
-    "@jsonforms/material-renderers": "^2.3.2",
-    "@jsonforms/react": "^2.3.2",
+    "@jsonforms/core": "^2.4.0",
+    "@jsonforms/examples": "^2.4.0",
+    "@jsonforms/material-renderers": "^2.4.0",
+    "@jsonforms/react": "^2.4.0",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
-    "@types/node": "14.0.13",
+    "@types/node": "14.0.14",
     "bootstrap-italia": "^1.4.0",
     "design-react-kit": "^3.2.2",
     "react": "^16.13.1",
