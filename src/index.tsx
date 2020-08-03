@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 
 import { Actions, jsonformsReducer } from "@jsonforms/core";
 import schema from "./schema/schema.json";
-// import uischema from "../schema/uischema.json";
+import uischema from "./schema/uischema.json";
 import {
   materialRenderers,
   materialCells,
@@ -35,7 +35,7 @@ const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   },
 });
 
-store.dispatch(Actions.init(data, schema, undefined));
+store.dispatch(Actions.init(data, schema, uischema));
 
 ReactDOM.render(
   <React.StrictMode>
