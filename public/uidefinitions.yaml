@@ -1,0 +1,130 @@
+uidefinitions:
+  Minore:
+    type: Group
+    label: Il minore
+    elements:
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          scope: "#/properties/minore/properties/given_name"
+        - type: Control
+          scope: "#/properties/minore/properties/family_name"
+
+  Madre:
+    type: Group
+    label: Il sottoscritto
+    elements:
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          scope: "#/properties/madre/properties/given_name"
+        - type: Control
+          scope: "#/properties/madre/properties/family_name"
+
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          label: Nato il
+          scope: "#/properties/madre/properties/date_of_birth"
+        - type: Control
+          label: a
+          scope: "#/properties/madre/properties/birth_place/properties/city"
+        - type: Control
+          scope: "#/properties/madre/properties/birth_place/properties/province"
+
+    - type: HorizontalLayout
+      label: Residente in
+      elements:
+        - type: Control
+          label: Residente in via/piazza
+          scope: "#/properties/madre/properties/residence/properties/street"
+        - type: Control
+          scope: "#/properties/madre/properties/residence/properties/city"
+        - type: Control
+          scope: "#/properties/madre/properties/residence/properties/province"
+
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/madre/properties/email"
+      - type: Control
+        scope: "#/properties/madre/properties/phone"
+  Padre:
+    type: Group
+    label: Il sottoscritto
+    elements:
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          scope: "#/properties/padre/properties/given_name"
+        - type: Control
+          scope: "#/properties/padre/properties/family_name"
+
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          label: Nato il
+          scope: "#/properties/padre/properties/date_of_birth"
+        - type: Control
+          label: a
+          scope: "#/properties/padre/properties/birth_place/properties/city"
+        - type: Control
+          scope: "#/properties/padre/properties/birth_place/properties/province"
+
+    - type: HorizontalLayout
+      label: Residente in
+      elements:
+        - type: Control
+          label: Residente in via/piazza
+          scope: "#/properties/padre/properties/residence/properties/street"
+        - type: Control
+          scope: "#/properties/padre/properties/residence/properties/city"
+        - type: Control
+          scope: "#/properties/padre/properties/residence/properties/province"
+
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/padre/properties/email"
+      - type: Control
+        scope: "#/properties/padre/properties/phone"
+
+  Richiedente:
+    type: Group
+    label: Il sottoscritto
+    elements:
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          scope: "#/properties/richiedente/properties/given_name"
+        - type: Control
+          scope: "#/properties/richiedente/properties/family_name"
+
+    - type: HorizontalLayout
+      elements:
+        - type: Control
+          label: Nato il
+          scope: "#/properties/richiedente/properties/date_of_birth"
+        - type: Control
+          label: a
+          scope: "#/properties/richiedente/properties/birth_place/properties/city"
+        - type: Control
+          scope: "#/properties/richiedente/properties/birth_place/properties/province"
+
+    - type: HorizontalLayout
+      label: Residente in
+      elements:
+        - type: Control
+          label: Residente in via/piazza
+          scope: "#/properties/richiedente/properties/residence/properties/street"
+        - type: Control
+          scope: "#/properties/richiedente/properties/residence/properties/city"
+        - type: Control
+          scope: "#/properties/richiedente/properties/residence/properties/province"
+
+    - type: HorizontalLayout
+      elements:
+      - type: Control
+        scope: "#/properties/richiedente/properties/email"
+      - type: Control
+        scope: "#/properties/richiedente/properties/phone"
