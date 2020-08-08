@@ -21,12 +21,14 @@ const isYAML = process.env.YAML_SOURCE || true;
 let schemaURL: string = "",
   uischemaURL: string = "";
 
+const p = new URLSearchParams(window.location.search).get("url") || "schema";
+
 if (isYAML) {
-  schemaURL = "schema/schema.yaml";
-  uischemaURL = "schema/uischema.yaml";
+  schemaURL = p + "/schema.yaml";
+  uischemaURL = p + "/uischema.yaml";
 } else {
-  schemaURL = "schema/schema.json";
-  uischemaURL = "schema/uischema.json";
+  schemaURL = p + "/schema.json";
+  uischemaURL = p + "/uischema.json";
 }
 
 const fetchSchema = async (url: string, dereference: boolean = false) => {
