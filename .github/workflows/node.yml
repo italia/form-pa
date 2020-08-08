@@ -30,3 +30,19 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: deploy-gh-pages
+    - run: |
+        rm -rf gh-pages
+        mv build gh-pages
+        echo "formpa.developers.italia.it" > gh-pages/CNAME
+        git config --global user.email no-reply@teamdigitale.governo.it
+        git config --global user.name "Deploy Bot"
+        if [[ $(git status -s | wc -l | awk '{print $1}') -gt 0 ]]; then
+          git add gh-pages
+          git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1} [ci skip]"
+          git push origin $CIRCLE_BRANCH
+        fi
