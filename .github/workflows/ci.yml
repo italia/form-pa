@@ -6,7 +6,9 @@ name: Form PA CI
 # events but only for the master branch
 on:
   push:
-    branches: [ '*' ]
+    branches:
+    - '*'
+    - '!master'
   pull_request:
     branches: [ master ]
 
@@ -28,5 +30,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
