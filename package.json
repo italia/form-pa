@@ -1,6 +1,7 @@
 {
   "name": "form-pa",
   "version": "0.1.1",
+  "homepage": "./",
   "private": true,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.2",
