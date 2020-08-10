@@ -1,0 +1,43 @@
+type: object
+properties:
+    soggetto:
+        $ref: "definitions.yaml#/schemas/Person"
+    richiedente:
+        $ref: "definitions.yaml#/schemas/Person"
+    documento_richiesto:
+        type: string
+        enum:
+        - "residenza"
+        - "stato di famiglia"
+        - "altro"
+    documento_richiesto_altro:
+        type: string
+        maxLength: 40
+    dichiarazione:
+        properties:
+            bollo:
+                type: boolean
+                title: |-
+                    Che tale certificato è richiesto in bollo
+            esenzione_bollo:
+                type: boolean
+                title: |-
+                    Che tale certificato è richiesto in esenzione dal bollo per uso
+            esenzione_notifica_atti_giudiziari:
+                type: boolean
+                title: |-
+                    Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)
+            esenzione_recupero_crediti_difensore_ufficio:
+                type: boolean
+                title: |-
+                   ai sensi art. 32  d.a. C.P.P.  – recupero crediti difensori d’ufficio
+                    (allegare cartellino professionale  avvocato  richiedente)
+            esenzione_altro:
+                type: string
+            data:
+                type: string
+                format: date-time
+                description: anno-mese-giorno
+__filemeta:
+    filename: src/pages/docs/components/multiple-forms/FormsExamples.js
+    name: schema
