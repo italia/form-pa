@@ -31,12 +31,8 @@ if (isYAML) {
 
 const fetchSchema = async (url: string, dereference: boolean = false) => {
   const text = await (await fetch(url)).text();
-  let out: string | object | undefined = text;
-  if (isYAML) {
-    out = yaml.safeLoad(text);
-  } else {
-    out = JSON.parse(text);
-  }
+  const out = yaml.safeLoad(text);
+  
   console.debug(url, out);
 
   if (!dereference) return out;
