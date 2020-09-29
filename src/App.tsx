@@ -11,6 +11,7 @@ import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "typeface-titillium-web/index.css";
 import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
+import QRCode from "./components/QRCode";
 
 export const App = () => {
   return (
@@ -23,7 +24,11 @@ export const App = () => {
         </Button>{" "}
         <Button color="secondary" icon={false} tag="button">
           Reset
+        </Button>{" "}
+        <Button color="secondary" icon={false} tag="button">
+          Show/Hide QRCode
         </Button>
+        <QRCode />
       </Container>
     </div>
   );

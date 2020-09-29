@@ -45,18 +45,6 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
   }
 };
 
-// Setup Redux store
-const data = {
-  id: 1,
-  name: "Mario",
-  last_name: "Rossi",
-  address: "Via Roma 1",
-  cap: "00100",
-  province: "RM",
-  city: "Roma",
-  country: "Italia",
-};
-
 const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   jsonforms: {
     cells: materialCells,
@@ -74,7 +62,7 @@ fetchSchema(schemaURL).then((schemaRetrieved) => {
       throw err;
     }
     fetchSchema(uischemaURL, true).then((uischema) => {
-      const dataC = uischema._meta?.data || data || {};
+      const dataC = uischema._meta?.data || {};
       store.dispatch(Actions.init(dataC, schema, uischema));
     });
   });
