@@ -3,7 +3,7 @@ import Qr from "qrcode.react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const qrCode = ({data}: any) => {
+const qrCode = ({ data, display }: any) => {
   const string = JSON.stringify(data);
   // size will be minimum 128, maximum 512
   const size =
@@ -13,7 +13,7 @@ const qrCode = ({data}: any) => {
       ? 512
       : (string.length / 100) * 128;
 
-  return <Qr value={string} size={size} />;
+  return <Qr value={string} size={size} style={{ display: display }} />;
 };
 
 qrCode.propTypes = {
