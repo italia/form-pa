@@ -4,16 +4,13 @@ import "./index.css";
 import { App } from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
-import { Actions, jsonformsReducer } from "@jsonforms/core";
-import {
-  materialRenderers,
-  materialCells,
-} from "@jsonforms/material-renderers";
+import { Actions } from "@jsonforms/core";
 import { JsonFormsReduxContext } from "@jsonforms/react";
 import yaml from "js-yaml";
+import store from "./store";
+
 const $RefParser = require("@apidevtools/json-schema-ref-parser");
 
 const isYAML = process.env.YAML_SOURCE || true;
@@ -45,25 +42,6 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
   }
 };
 
-// Setup Redux store
-const data = {
-  id: 1,
-  name: "Mario",
-  last_name: "Rossi",
-  address: "Via Roma 1",
-  cap: "00100",
-  province: "RM",
-  city: "Roma",
-  country: "Italia",
-};
-
-const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
-  jsonforms: {
-    cells: materialCells,
-    renderers: materialRenderers,
-  },
-});
-
 fetchSchema(schemaURL).then((schemaRetrieved) => {
   console.log("schemaRetrieved", schemaRetrieved);
 
@@ -74,7 +52,7 @@ fetchSchema(schemaURL).then((schemaRetrieved) => {
       throw err;
     }
     fetchSchema(uischemaURL, true).then((uischema) => {
-      const dataC = uischema._meta?.data || data || {};
+      const dataC = uischema._meta?.data || {};
       store.dispatch(Actions.init(dataC, schema, uischema));
     });
   });
