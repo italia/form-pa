@@ -1,5 +1,18 @@
-// @ts-ignore
-import { Col, Button, DropdownToggle, LinkListItem, DropdownMenu, Header, HeaderBrand, HeaderContent, HeaderRightZone, Icon, LinkList,  Row, UncontrolledDropdown,} from "design-react-kit";
+import {
+  Col,
+  Button,
+  DropdownToggle,
+  LinkListItem,
+  DropdownMenu,
+  Header,
+  HeaderBrand,
+  HeaderContent,
+  HeaderRightZone,
+  Icon,
+  LinkList,
+  Row,
+  UncontrolledDropdown,
+} from "design-react-kit";
 
 import React from "react";
 
