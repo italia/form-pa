@@ -1,6 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 import { App } from "./App";
+import { render, fireEvent, screen } from '../test-utils';
 
 
 describe("render components", ()=> {

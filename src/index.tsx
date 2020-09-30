@@ -4,16 +4,13 @@ import "./index.css";
 import { App } from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
-import { Actions, jsonformsReducer } from "@jsonforms/core";
-import {
-  materialRenderers,
-  materialCells,
-} from "@jsonforms/material-renderers";
+import { Actions } from "@jsonforms/core";
 import { JsonFormsReduxContext } from "@jsonforms/react";
 import yaml from "js-yaml";
+import store from "./store";
+
 const $RefParser = require("@apidevtools/json-schema-ref-parser");
 
 const isYAML = process.env.YAML_SOURCE || true;
@@ -44,13 +41,6 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
     throw err;
   }
 };
-
-const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
-  jsonforms: {
-    cells: materialCells,
-    renderers: materialRenderers,
-  },
-});
 
 fetchSchema(schemaURL).then((schemaRetrieved) => {
   console.log("schemaRetrieved", schemaRetrieved);
