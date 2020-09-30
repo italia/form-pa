@@ -19,5 +19,6 @@ describe("render components", ()=> {
     const { getByText } = render(<App />);
     expect(getByText("Save")).toBeInTheDocument();
     expect(getByText("Reset")).toBeInTheDocument();
+    expect(getByText("Show/Hide QRCode")).toBeInTheDocument();
   });
 });
