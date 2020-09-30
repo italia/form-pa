@@ -21,7 +21,7 @@ export const App = () => {
       <HeaderBar className="App-header" />
       <Container>
         <JsonFormsDispatch />
-        <QRCode display={isVisible ? "block" : "none"} toggle={()=> setVisible(!isVisible)}/>
+        <QRCode display={isVisible} toggle={()=> setVisible(!isVisible)}/>
         <Button color="primary" icon={false} tag="button">
           Save
         </Button>{" "}

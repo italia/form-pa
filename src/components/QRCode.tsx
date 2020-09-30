@@ -21,7 +21,7 @@ const qrCode = ({ data, display, toggle }: any) => {
       : (string.length / 100) * 128;
 
   return (
-    <Modal isOpen={display == "block" ? true : false} toggle={toggle}>
+    <Modal isOpen={display} toggle={toggle}>
       <ModalHeader charCode={215} closeAriaLabel="Close" tag="h5" wrapTag="div">
         QRCode
       </ModalHeader>
