@@ -14,14 +14,14 @@ import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
 
 
-export const App = (props: any) => {
+export const App = () => {
   const [isVisible, setVisible] = useState(false);
   return (
     <div className="App">
       <HeaderBar className="App-header" />
       <Container>
         <JsonFormsDispatch />
-        <QRCode display={isVisible ? "block" : "none"} />
+        <QRCode display={isVisible ? "block" : "none"} toggle={()=> setVisible(!isVisible)}/>
         <Button color="primary" icon={false} tag="button">
           Save
         </Button>{" "}
