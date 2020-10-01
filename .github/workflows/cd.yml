@@ -29,4 +29,7 @@ jobs:
       
     - name: gh_pages_deploy
       run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/sebbalex/form-pa.git
         npm run deploy -- --dotfiles -m "Automated deployment: ${CIRCLE_SHA1} [ci skip]"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
