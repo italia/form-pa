@@ -12,7 +12,7 @@ import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "typeface-titillium-web/index.css";
 import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
-
+import PDFDocument from "./pdf/PDFDocument";
 
 export const App = () => {
   const [isVisible, setVisible] = useState(false);
@@ -36,6 +36,7 @@ export const App = () => {
         >
           Show/Hide QRCode
         </Button>
+        <PDFDocument />
       </Container>
     </div>
   );
