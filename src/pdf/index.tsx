@@ -1,37 +1,12 @@
 import { PDFDocument } from "pdf-lib";
 import { AnyAction, Store } from "redux";
+import { getAllDomFields } from "./dom";
+import { createTextElement } from "./generate";
 
 const download = (arrayBuffer: any, type: string) => {
   var blob = new Blob([arrayBuffer], { type: type });
   var url = URL.createObjectURL(blob);
   window.open(url);
-};
-
-const getDomElByJSONSchemaField = (elID: string): string => {
-  return (document.getElementById(elID) as HTMLInputElement).value;
-};
-
-const createTextElement = (
-  page: any,
-  form: any,
-  label: string,
-  id: string,
-  w: number,
-  h: number
-) => {
-  console.log(label, id);
-  if (id === null || id === "") {
-    return;
-  }
-  page.drawText(label, {
-    x: 15,
-    y: h,
-    size: 12,
-  });
-
-  const nameField = form.createTextField(id);
-  nameField.setText(getDomElByJSONSchemaField(id));
-  nameField.addToPage(page, { x: 250, y: h, width: 250, height: 20 });
 };
 
 export const getPDF = async (store: Store<any, AnyAction>) => {
@@ -45,39 +20,19 @@ export const getPDF = async (store: Store<any, AnyAction>) => {
 
   const { width, height } = page.getSize();
 
-  const schema = store.getState().jsonforms?.core?.schema?.properties;
-  if (schema === null) {
-    console.error("schema not defined", store.getState());
-  }
-  console.log("schema", store.getState().jsonforms);
-
-  const containerInnerHTML = document.querySelector("#container");
-  console.log("html", containerInnerHTML);
-
-  const allInputs = document.getElementsByTagName("input");
-
-  for (let index = 0; index < allInputs.length; ++index) {
-    let name = "",
-      el;
-    try {
-      el = document.querySelector(
-        `[for="${allInputs[index].id}"]`
-      ) as HTMLDivElement;
-      name = el.innerHTML;
-    } catch {
-      el = null;
-    }
-
+  const fields = getAllDomFields();
+  fields.forEach((field) => {
     createTextElement(
       page,
       form,
-      name,
-      allInputs[index].id,
+      field.label,
+      field.id,
       width,
-      height - 70 * index
+      height - 70 * fields.indexOf(field)
     );
-  }
+  });
 
+  // save and download
   const pdfBytes = await pdfDoc.save();
   download(pdfBytes, "application/pdf");
 };
