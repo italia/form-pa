@@ -5,9 +5,6 @@ export const getDomElByJSONSchemaField = (elID: string): string => {
 };
 
 export const getAllDomFields = (): Fields => {
-  const containerInnerHTML = document.querySelector("#container");
-  console.log("html", containerInnerHTML);
-
   const allInputs = document.getElementsByTagName("input");
 
   let fields: Fields = [];

@@ -8,7 +8,7 @@ export const createTextElement = (
   w: number,
   h: number
 ) => {
-  console.log(label, id);
+  console.debug(label, id);
   if (id === null || id === "") {
     return;
   }

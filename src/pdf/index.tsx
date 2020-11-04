@@ -20,7 +20,10 @@ export const getPDF = async (store: Store<any, AnyAction>) => {
 
   const { width, height } = page.getSize();
 
+  // get fields from dom
   const fields = getAllDomFields();
+  // const fieldsSchema = getAllFields(store);
+
   fields.forEach((field) => {
     createTextElement(
       page,
