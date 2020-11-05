@@ -1,7 +1,10 @@
 import { Fields } from "./field";
 
 export const getDomElByJSONSchemaField = (elID: string): string => {
-  return (document.getElementById(elID) as HTMLInputElement).value;
+  return (document.getElementById(elID) as HTMLInputElement)?.value;
+};
+export const getDomElLabelByID = (elID: string): string => {
+  return (document.querySelector(`[for="${elID}"]`) as HTMLInputElement)?.innerHTML;
 };
 
 export const getAllDomFields = (): Fields => {
@@ -16,7 +19,7 @@ export const getAllDomFields = (): Fields => {
         `[for="${allInputs[index].id}"]`
       ) as HTMLDivElement;
       label = el.innerHTML;
-      fields.push({ id: allInputs[index].id, label });
+      fields.push({ scope: allInputs[index].id, label });
     } catch {
       el = null;
     }

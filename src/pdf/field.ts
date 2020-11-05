@@ -1,6 +1,8 @@
 export interface Field {
-  id: string;
+  scope: string;
   label: string;
+  type?: string;
+  elements?: Array<Field>
 }
 
 export type Fields = Array<Field>;
