@@ -35,14 +35,15 @@ export const getPDF = async (store: Store<any, AnyAction>) => {
     height = height - spacer;
 
     switch (field.type) {
+      case "object":
       case "label":
-        height -= field.label.length;
+        height -= field.label?.length || 0;
         createLabelElement(page, form, width, height, field);
         break;
-      case "text":
+      case "string":
         createTextElement(page, form, width, height, field);
         break;
-      case "checkbox":
+      case "boolean":
         createTextElement(page, form, width, height, field);
         break;
       default:
