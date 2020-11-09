@@ -1,10 +1,16 @@
 import { Fields } from "./field";
 
+export const getDomElCheckBoxByJSONSchemaField = (elID: string): boolean => {
+  return (document.getElementById(elID) as HTMLInputElement)?.checked;
+};
+
 export const getDomElByJSONSchemaField = (elID: string): string => {
   return (document.getElementById(elID) as HTMLInputElement)?.value;
 };
+
 export const getDomElLabelByID = (elID: string): string => {
-  return (document.querySelector(`[for="${elID}"]`) as HTMLInputElement)?.innerHTML;
+  return (document.querySelector(`[for="${elID}"]`) as HTMLInputElement)
+    ?.innerHTML;
 };
 
 export const getAllDomFields = (): Fields => {

@@ -1,7 +1,7 @@
 import { PDFDocument } from "pdf-lib";
 import { AnyAction, Store } from "redux";
 // import { getAllDomFields } from "./dom";
-import { createTextElement, createLabelElement } from "./generate";
+import { createTextElement, createLabelElement, createBooleanElement } from "./generate";
 import { getAllFields } from "./schema";
 
 const download = (arrayBuffer: any, type: string) => {
@@ -44,7 +44,7 @@ export const getPDF = async (store: Store<any, AnyAction>) => {
         createTextElement(page, form, width, height, field);
         break;
       case "boolean":
-        createTextElement(page, form, width, height, field);
+        createBooleanElement(page, form, width, height, field);
         break;
       default:
         createTextElement(page, form, width, height, field);
