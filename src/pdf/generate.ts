@@ -23,17 +23,6 @@ export const createTextElement = (
   h: number,
   { scope, label = "" }: Field
 ) => {
-  // whether scope is not present that means it
-  // is a simple label
-  if (scope === "") {
-    page.drawText(label, {
-      x: 15,
-      y: h - 20,
-      size: 12,
-    });
-    return;
-  }
-
   page.drawText(label, {
     x: 15,
     y: h,
