@@ -1,4 +1,7 @@
-import { getDomElByJSONSchemaField, getDomElCheckBoxByJSONSchemaField } from "./dom";
+import {
+  getDomElByJSONSchemaField,
+  getDomElCheckBoxByJSONSchemaField,
+} from "./dom";
 import { Field } from "./field";
 
 export const createLabelElement = (
@@ -13,7 +16,6 @@ export const createLabelElement = (
     y: h,
     size: 12,
   });
-  return;
 };
 
 export const createTextElement = (
@@ -55,9 +57,8 @@ export const createBooleanElement = (
   });
 
   const booleanField = form.createCheckBox(scope);
-  
+
   if (getDomElCheckBoxByJSONSchemaField(scope)) {
-    console.log("checking", scope, getDomElCheckBoxByJSONSchemaField(scope));
     booleanField.check();
   }
   booleanField.addToPage(page, {
