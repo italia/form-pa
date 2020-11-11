@@ -4,7 +4,6 @@ import "./App.css";
 
 import { HeaderBar } from "./components/HeaderBar";
 import { JsonFormsDispatch } from "@jsonforms/react";
-// @ts-ignore
 import { Button, Container } from "design-react-kit";
 import QRCode from "./components/QRCode";
 

@@ -11,6 +11,7 @@
     "@types/qrcode.react": "^1.0.1",
     "@types/react": "16.9.44",
     "@types/react-dom": "16.9.8",
+    "@types/styled-components": "^5.1.4",
     "react-scripts": "^3.4.1",
     "ts-jest": "^26.1.4",
     "typescript": "3.9.7"
@@ -41,6 +42,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
+    "styled-components": "^5.2.1",
     "typeface-lora": "0.0.72",
     "typeface-roboto-mono": "0.0.75",
     "typeface-titillium-web": "0.0.72"
