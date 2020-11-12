@@ -42,6 +42,12 @@ if (isYAML) {
   uischemaURL = "schema/uischema.json";
 }
 
+schemaURL =
+  new URLSearchParams(window.location.search).get("url_schema") || schemaURL;
+uischemaURL =
+  new URLSearchParams(window.location.search).get("url_uischema") ||
+  uischemaURL;
+
 const fetchSchema = async (url: string, dereference: boolean = false) => {
   const text = await (await fetch(url)).text();
   const out = yaml.safeLoad(text);
