@@ -73,7 +73,7 @@ elements:
               scope: "#/properties/soggetto/properties/birth_place/properties/city"
             - type: Control
               scope: "#/properties/soggetto/properties/birth_place/properties/province"
-- type: VerticalLayout
+- type: Group
   label: |-
     consapevole che in caso di dichiarazione mendace sarà punito ai sensi del Codice Penale
     secondo quanto prescritto dall'art. 76 del D.P.R. 445/2000 e che inoltre,
@@ -104,7 +104,7 @@ elements:
         scope: "#/properties/dichiarazione/properties/esenzione_altro"
         x-br: true
 
-- type: VerticalLayout
+- type: Group
   label: |-
     Allegare copia del documento di riconoscimento
 
