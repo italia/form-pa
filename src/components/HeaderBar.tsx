@@ -33,6 +33,8 @@ import {
 } from "design-react-kit";
 
 import React from "react";
+import spidConfig from "../spid.config.json";
+import SPIDButton from "./SPIDButton";
 
 export interface Props {
   className: string | undefined;
@@ -42,6 +44,7 @@ export const HeaderBar = (props: Props) => {
   return (
     <Header small={false} theme="" type="slim" className={props.className}>
       <HeaderContent>
+        <SPIDButton spidConfig={spidConfig}/>
         <HeaderBrand responsive tag="a">
           Ente appartenenza/Owner
         </HeaderBrand>
@@ -71,23 +74,8 @@ export const HeaderBar = (props: Props) => {
               </Row>
             </DropdownMenu>
           </UncontrolledDropdown>
-          <Button
-            className="btn-icon"
-            color="primary"
-            href="#"
-            icon={false}
-            size="full"
-            tag="button"
-          >
-            <span className="rounded-icon">
-              <Icon color="primary" icon="it-user" padding={false} size="" />
-            </span>
-            <span className="d-none d-lg-block">Accedi all'area personale</span>
-          </Button>
         </HeaderRightZone>
       </HeaderContent>
     </Header>
   );
 };
-
-// export default HeaderBar;

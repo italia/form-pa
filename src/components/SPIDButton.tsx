@@ -1,0 +1,27 @@
+import React from "react";
+import SPID from "spid-smart-button/dist/spid-button-umd.js";
+
+interface Props {
+  spidConfig: any;
+}
+
+class SPIDButton extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(this.props.spidConfig);
+
+    SPID.init(this.props.spidConfig);
+    const classes =
+      "spid-button spid-button-positive spid-button-rounded spid-button-size-medium";
+    document.getElementsByClassName(classes)[0].removeAttribute("hidden");
+  }
+
+  render() {
+    return <div id="spid-button"></div>;
+  }
+}
+
+export default SPIDButton;

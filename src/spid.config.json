@@ -1,0 +1,27 @@
+{
+  "selector": "#spid-button",
+  "url": "http://localhost:3000/login?entityID={{idp}}",
+  "supported": [
+    "https://loginspid.aruba.it",
+    "https://identity.infocert.it",
+    "https://posteid.poste.it",
+    "https://identity.sieltecloud.it",
+    "https://login.id.tim.it/affwebservices/public/saml2sso",
+    "https://idp.namirialtsp.com/idp",
+    "https://spid.register.it",
+    "https://spid.intesa.it",
+    "https://id.lepida.it/idp/shibboleth"
+  ],
+  "mapping": {
+    "https://posteid.poste.it": "posteid",
+    "https://localhost:8088": "xx_testenv2"
+  },
+  "extraProviders": [
+    {
+      "protocols": ["SAML"],
+      "entityName": "Test ID",
+      "entityID": "https://localhost:8088",
+      "active": true
+    }
+  ]
+}
