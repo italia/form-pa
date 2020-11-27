@@ -38,3 +38,8 @@ Or simply run docker replacing that schema with one supplied at runtime as:
 $ docker build -f Dockerfile.dev . -t form-pa:dev
 $ docker run -v ${PWD}/public/schema/schema.json.example:/app/public/schema/schema.json -it --rm -p 3000:3000 -e YAML_SOURCE=true form-pa:dev
 ```
+
+## License
+
+form-pa is licensed under the [GNU Affero General Public License v3.0 or later](LICENSE)
+license.
