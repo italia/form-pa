@@ -21,7 +21,7 @@ $ npm start
 Install all dependencies and build
 ```bash
 $ npm install
-$ npm build
+$ npm run build
 ```
 Then `./dist` will be ready to be served.
 
