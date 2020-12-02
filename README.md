@@ -30,13 +30,13 @@ Then `./dist` will be ready to be served.
 Run with a preset json schema, stored in `public/schema/schema.json` and default uischema as well in `public/schema/uischema.json`. To overwrite them just mount a volume.
 ```bash
 $ docker build . -t form-pa
-$ docker run -it --rm form-pa
+$ docker run -it --rm -p 80:80 form-pa
 ```
 
 Or simply run docker replacing that schema with one supplied at runtime as:
 ```bash
 $ docker build -f Dockerfile.dev . -t form-pa:dev
-$ docker run -v ${PWD}/public/schema/schema.json.example:/app/public/schema/schema.json -it --rm -p 3000:3000 -e YAML_SOURCE=true form-pa:dev
+$ docker run -v ${PWD}/public/schema/schema.yaml:/usr/src/app/public/schema/schema.yaml -it --rm -p 3000:3000 -e YAML_SOURCE=true form-pa:dev
 ```
 
 ## License
