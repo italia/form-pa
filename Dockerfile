@@ -1,5 +1,5 @@
 # Stage 0, "build-stage".
-FROM node:lts as build-stage
+FROM node:14-alpine3.12 as build-stage
 WORKDIR /app
 COPY package*.json /app/
 
