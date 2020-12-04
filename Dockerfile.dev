@@ -1,12 +1,7 @@
 # Stage 0, "run-stage".
 FROM node:lts-alpine
 
-ENV HOME /usr/src/app/
-ENV USER developers
-
-WORKDIR ${HOME}
-
-# RUN apk add ca-certificates
+WORKDIR /usr/src/app/
 
 COPY package*.json ./
 RUN npm install
@@ -15,11 +10,6 @@ COPY jest.config.js .
 COPY src src
 COPY public public
 
-RUN adduser --home ${HOME} --shell /bin/sh --disabled-password ${USER}
-
-RUN chown -R ${USER}.${USER} ${HOME}
-
-
-USER ${USER}
+USER node
 
 ENTRYPOINT [ "npm", "start" ]
