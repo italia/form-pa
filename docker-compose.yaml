@@ -4,7 +4,7 @@ services:
   # Form PA
   form-pa:
     container_name: form-pa
-    image: sebbalex/form-pa
+    image: italia/form-pa
     build:
       context: ./
       dockerfile: Dockerfile
