@@ -19,6 +19,7 @@
 import React from "react";
 // import { render } from "@testing-library/react";
 import { App } from "./App";
+// @ts-ignore
 import { render, fireEvent, screen } from '../test-utils';
 
 
