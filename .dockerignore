@@ -1,4 +1,6 @@
 .git
+.gitignore
+.github
 node_modules
 build
 dist

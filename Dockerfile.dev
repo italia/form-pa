@@ -1,15 +1,6 @@
-# Stage 0, "run-stage".
 FROM node:14-alpine3.12
-
 WORKDIR /usr/src/app/
-
-COPY package*.json ./
+COPY . .
 RUN npm install
-COPY tsconfig.json .
-COPY jest.config.js .
-COPY src src
-COPY public public
-
 USER node
-
 ENTRYPOINT [ "npm", "start" ]
