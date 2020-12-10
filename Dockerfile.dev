@@ -1,5 +1,5 @@
 # Stage 0, "run-stage".
-FROM node:lts-alpine
+FROM node:14-alpine3.12
 
 WORKDIR /usr/src/app/
 
