@@ -1,6 +1,7 @@
 {
   "selector": "#spid-button",
-  "url": "http://localhost:3000/login?entityID={{idp}}",
+  "url": "https://developers01.zland.org/login?entityID={{idp}}&redirectTo=http://localhost:8080",
+  "method": "GET",
   "supported": [
     "https://loginspid.aruba.it",
     "https://identity.infocert.it",
@@ -14,13 +15,13 @@
   ],
   "mapping": {
     "https://posteid.poste.it": "posteid",
-    "https://localhost:8088": "xx_testenv2"
+    "https://developers01.zland.org": "xx_testenv2"
   },
   "extraProviders": [
     {
       "protocols": ["SAML"],
       "entityName": "Test ID",
-      "entityID": "https://localhost:8088",
+      "entityID": "https://developers01.zland.org",
       "active": true
     }
   ]
