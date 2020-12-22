@@ -32,6 +32,21 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
     throw err;
   }
 };
+const camelToSnakeCase = (str: string): string =>
+  str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+
+const getDataFromURL = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  let richiedente: { [key: string]: string | number | boolean } = {};
+
+  for (const [key, value] of urlParams.entries()) {
+    richiedente[camelToSnakeCase(key)] = value;
+  }
+
+  return {
+    richiedente,
+  };
+};
 
 export const loadSchema = (store: Store) => {
   fetchSchema(schemaURL).then((schemaRetrieved) => {
@@ -44,7 +59,9 @@ export const loadSchema = (store: Store) => {
         throw err;
       }
       fetchSchema(uischemaURL, true).then((uischema) => {
-        const dataC = uischema._meta?.data || {};
+        console.log("uischemaRetrieved", uischema, getDataFromURL());
+
+        const dataC = uischema._meta?.data || getDataFromURL();
         store.dispatch(Actions.init(dataC, schema, uischema));
       });
     });

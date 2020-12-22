@@ -8,7 +8,7 @@ export const Footer = () => {
     <div className="pb-3">
       <QRCode display={isVisible} toggle={() => setVisible(!isVisible)} />
       <Button color="primary" icon={false} tag="button">
-        Savess
+        Save
       </Button>{" "}
       <Button color="secondary" icon={false} tag="button">
         Reset
