@@ -6,6 +6,32 @@ const $RefParser = require("@apidevtools/json-schema-ref-parser");
 
 const isYAML = process.env.YAML_SOURCE || true;
 
+interface Mapping {
+  [key: string]: string;
+}
+
+const mapping: Mapping = {
+  authnId: "authnId",
+  spidCode: "spidCode",
+  name: "given_name",
+  familyName: "family_name",
+  placeOfBirth: "birth_place.city",
+  countyOfBirth: "birth_place.province",
+  dateOfBirth: "date_of_birth",
+  gender: "sex",
+  fiscalNumber: "tax_code",
+  idCard: "document.numero",
+  mobilePhone: "phone",
+  email: "email",
+  address: "residence.street",
+  // don't have a corresponding field
+  ivaCode: "ivaCode",
+  companyName: "companyName",
+  registeredOffice: "registeredOffice",
+  expirationDate: "expirationDate",
+  digitalAddress: "digitalAddress",
+};
+
 let schemaURL: string = "",
   uischemaURL: string = "";
 
@@ -32,15 +58,27 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
     throw err;
   }
 };
-const camelToSnakeCase = (str: string): string =>
-  str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+
+const setToValue = (obj: Mapping, path: string, value: string): void => {
+  const a = path.split(".");
+  let o: any = obj;
+  while (a.length - 1) {
+    const n = a.shift() || "undef";
+    if (!(n in o)) o[n] = {};
+    o = o[n];
+  }
+  o[a[0]] = value;
+};
 
 const getDataFromURL = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  let richiedente: { [key: string]: string | number | boolean } = {};
+  let richiedente: { [key: string]: string } = {};
 
   for (const [key, value] of urlParams.entries()) {
-    richiedente[camelToSnakeCase(key)] = value;
+    if(!Object.keys(mapping).includes(key)) {
+      continue;
+    }
+    setToValue(richiedente, mapping[key], value);
   }
 
   return {
