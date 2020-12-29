@@ -32,7 +32,7 @@ import {
 } from "design-react-kit";
 
 import React from "react";
-import spidConfig from "../spid.config.json";
+import {spidConfig} from "../config";
 import SPIDButton from "./SPIDButton";
 
 export interface Props {
