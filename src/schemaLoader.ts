@@ -1,8 +1,7 @@
 import { Actions } from "@jsonforms/core";
 import yaml from "js-yaml";
 import { Store } from "redux";
-
-const $RefParser = require("@apidevtools/json-schema-ref-parser");
+import $RefParser from "@apidevtools/json-schema-ref-parser";
 
 const isYAML = process.env.YAML_SOURCE || true;
 
@@ -47,8 +46,7 @@ const fetchSchema = async (url: string, dereference: boolean = false) => {
   const text = await (await fetch(url)).text();
   const out = yaml.safeLoad(text);
 
-  console.debug(url, out);
-
+  if (!out) return;
   if (!dereference) return out;
 
   try {
@@ -75,7 +73,7 @@ const getDataFromURL = () => {
   let richiedente: { [key: string]: string } = {};
 
   for (const [key, value] of urlParams.entries()) {
-    if(!Object.keys(mapping).includes(key)) {
+    if (!Object.keys(mapping).includes(key)) {
       continue;
     }
     setToValue(richiedente, mapping[key], value);
@@ -88,19 +86,18 @@ const getDataFromURL = () => {
 
 export const loadSchema = (store: Store) => {
   fetchSchema(schemaURL).then((schemaRetrieved) => {
-    console.log("schemaRetrieved", schemaRetrieved);
+    if (!schemaRetrieved) {
+      return;
+    }
 
     $RefParser.dereference(schemaRetrieved, (err: any, schema: any) => {
-      console.log("schema", err);
       if (err) {
         console.error(err);
         throw err;
       }
-      fetchSchema(uischemaURL, true).then((uischema) => {
-        console.log("uischemaRetrieved", uischema, getDataFromURL());
-
-        const dataC = uischema._meta?.data || getDataFromURL();
-        store.dispatch(Actions.init(dataC, schema, uischema));
+      
+      fetchSchema(uischemaURL, true).then((uischema: any) => {
+        store.dispatch(Actions.init(getDataFromURL(), schema, uischema));
       });
     });
   });
