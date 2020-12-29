@@ -18,13 +18,12 @@ export const spidConfig = {
   ],
   mapping: {
     "https://posteid.poste.it": "posteid",
-    beURL: "xx_testenv2",
   },
   extraProviders: [
     {
       protocols: ["SAML"],
       entityName: "Test ID",
-      entityID: beURL,
+      entityID: "xx_testenv2",
       active: true,
     },
   ],
