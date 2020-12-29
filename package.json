@@ -25,6 +25,7 @@
     "copy-webpack-plugin": "^6.3.2",
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.1.5",
+    "dotenv-webpack": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^6.0.5",
     "html-webpack-plugin": "^4.5.0",
     "https-browserify": "^1.0.0",

@@ -6,6 +6,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const srcPath = path.resolve(__dirname, 'src');
@@ -44,6 +45,10 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
+    new Dotenv({
+      allowEmptyValues: false,
+      systemvars: true,
+    }),
     new HtmlWebpackPlugin({
       template: `${srcPath}/index.html`,
       filename: './index.html',
