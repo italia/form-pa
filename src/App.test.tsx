@@ -31,7 +31,7 @@ describe("render components", ()=> {
 
   it("renders login button", () => {
     const { getByText } = render(<App />);
-    expect(getByText("Accedi all'area personale")).toBeInTheDocument();
+    expect(getByText("Entra con SPID")).toBeInTheDocument();
   });
 
   it("renders form buttons", () => {
