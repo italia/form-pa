@@ -13,15 +13,15 @@ Using [this](https://jsonschema.net) service or any others found on internet cre
 ### Local Dev
 Install all dependencies and start
 ```bash
-$ npm install
-$ npm start
+$ yarn install
+$ yarn start
 ```
 
 ### Local Prod
 Install all dependencies and build
 ```bash
-$ npm install
-$ npm run build
+$ yarn install
+$ yarn build
 ```
 Then `./dist` will be ready to be served.
 

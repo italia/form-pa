@@ -4,9 +4,9 @@ WORKDIR /app
 COPY package*.json /app/
 
 # First install deps, then copy app and build.
-RUN npm ci
+RUN yarn install --frozen-lockfile
 COPY ./ /app/
-RUN npm run build
+RUN yarn build
 
 # Stage 1, "prod-stage".
 FROM nginx:stable

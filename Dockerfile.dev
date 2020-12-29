@@ -1,6 +1,6 @@
 FROM node:14-alpine3.12
 WORKDIR /usr/src/app/
 COPY . .
-RUN npm install
+RUN yarn install
 USER node
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "yarn", "start" ]
