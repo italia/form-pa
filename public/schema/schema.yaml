@@ -1,38 +1,54 @@
 type: object
 properties:
     soggetto:
+        title: Il sottoscritto
         $ref: "definitions.yaml#/schemas/Person"
     richiedente:
         $ref: "definitions.yaml#/schemas/Person"
-    documento_richiesto:
-        type: string
-        enum:
-        - "residenza"
-        - "stato di famiglia"
-        - "altro"
-    documento_richiesto_altro:
-        type: string
-        maxLength: 40
+    domiciliato:
+        $ref: "definitions.yaml#/schemas/Person"
+    documento:
+        properties:
+            idCard:
+                title: numero
+                type: string
+            tipo:
+                title: Tipo
+                type: string
+                enum:
+                - "Carta d'identità"
+                - "SPID"
+                - "Passaporto"
+                - "Patente"
+            rilasciato_da:
+                title: Tipo
+                type: string
+            rilasciato_il:
+                title: Tipo
+                type: string
+                format: date
     dichiarazione:
         properties:
-            bollo:
+            esigenze_lavoro:
                 type: boolean
                 title: |-
-                    Che tale certificato è richiesto in bollo
-            esenzione_bollo:
+                    Comprovate esigenze lavorative
+            esigenze_salute:
                 type: boolean
                 title: |-
-                    Che tale certificato è richiesto in esenzione dal bollo per uso
-            esenzione_notifica_atti_giudiziari:
+                    Motivi di salute
+            esigenze_altro:
                 type: boolean
                 title: |-
-                    Notifica atti giudiziari  (allegare cartellino professionale avvocato richiedente)
-            esenzione_recupero_crediti_difensore_ufficio:
-                type: boolean
-                title: |-
-                   ai sensi art. 32  d.a. C.P.P.  – recupero crediti difensori d’ufficio
-                    (allegare cartellino professionale  avvocato  richiedente)
-            esenzione_altro:
+                    altri motivi ammessi dalle vigenti normative ovvero dai predetti decreti, ordinanze e altri
+                    provvedimenti che definiscono le misure di prevenzione della diffusione del contagio
+                    (specificare il motivo che determina lo spostamento)
+
+            spostamento_iniziato:
+                type: string
+            spostamento_destinazione:
+                type: string
+            spostamento_motivo:
                 type: string
             data:
                 type: string
