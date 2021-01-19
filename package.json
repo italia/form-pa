@@ -49,7 +49,7 @@
     "deploy": "gh-pages -u 'Deploy Bot <no-reply@teamdigitale.governo.it>' -d build"
   },
   "dependencies": {
-    "@apidevtools/json-schema-ref-parser": "^9.0.6",
+    "@apidevtools/json-schema-ref-parser": "^9.0.7",
     "@jsonforms/core": "^2.4.1",
     "@jsonforms/examples": "^2.4.1",
     "@jsonforms/material-renderers": "^2.4.1",
