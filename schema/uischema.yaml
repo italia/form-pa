@@ -40,11 +40,13 @@ elements:
     - type: Control
       scope: "#/properties/richiedente/properties/phone"
 - type: Group
-  label: |-
-    a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223 e/o
-    degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
-    CHIEDE
+  label: ""
   elements:
+    - type: Markdown
+      scope: ""
+      label: |-
+        ##### a norma degli artt.33 e 35 del d.P.R. 30.05.1989, n. 223 e/o degli artt. 106,107 e 108 del d.P.R. 3.11.2000 n.396
+        #### CHIEDE
     - type: HorizontalLayout
       label: Il rilascio della sottoelencata certificazione(contrassegnata con X)  *  **
       elements:
