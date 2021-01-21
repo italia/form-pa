@@ -33,7 +33,7 @@ jobs:
       
     - name: gh_pages_deploy
       run: |
-        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/italia/form-pa.git
-        yarn deploy -- --dotfiles -m "Automated deployment: ${CIRCLE_SHA1} [ci skip]"
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        yarn deploy -- --dotfiles -m "Automated deployment: ${GITHUB_SHA} [ci skip]"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
