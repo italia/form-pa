@@ -2,9 +2,19 @@ const redirectTo = process.env.REDIRECT_TO || "http://localhost:3000";
 const beURL = process.env.BE_BASEURL || "http://localhost:5000";
 
 export const spidConfig = {
-  selector: "#spid-button",
-  url: `${beURL}/login?entityID={{idp}}&redirectTo=${redirectTo}`,
+  extraProviders: [
+    {
+      active: true,
+      entityID: "xx_testenv2",
+      entityName: "Test ID",
+      protocols: ["SAML"],
+    },
+  ],
+  mapping: {
+    "https://posteid.poste.it": "posteid",
+  },
   method: "GET",
+  selector: "#spid-button",
   supported: [
     "https://loginspid.aruba.it",
     "https://identity.infocert.it",
@@ -16,15 +26,5 @@ export const spidConfig = {
     "https://spid.intesa.it",
     "https://id.lepida.it/idp/shibboleth",
   ],
-  mapping: {
-    "https://posteid.poste.it": "posteid",
-  },
-  extraProviders: [
-    {
-      protocols: ["SAML"],
-      entityName: "Test ID",
-      entityID: "xx_testenv2",
-      active: true,
-    },
-  ],
+  url: `${beURL}/login?entityID={{idp}}&redirectTo=${redirectTo}`,
 };

@@ -1,19 +1,14 @@
-import * as React from 'react';
-import { withJsonFormsControlProps } from '@jsonforms/react';
-import { Markdown } from './Markdown';
+import * as React from "react";
+import { withJsonFormsControlProps } from "@jsonforms/react";
+import { ControlElement } from "@jsonforms/core";
+import { Markdown } from "./Markdown";
 
 interface MarkdownControlProps {
-  data: any;
-  path: string;
-  uischema: any;
+  readonly uischema: ControlElement;
 }
 
-const MarkdownControl = ({ data, path, uischema }: MarkdownControlProps) => (
-  <Markdown
-    data={data}
-    path={path}
-    uischema={uischema}
-  />
+const MarkdownControl = ({ uischema }: MarkdownControlProps) => (
+  <Markdown uischema={uischema} />
 );
 
 export default withJsonFormsControlProps(MarkdownControl);

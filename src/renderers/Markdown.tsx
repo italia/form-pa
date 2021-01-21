@@ -1,14 +1,18 @@
-import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+import { ControlElement } from "@jsonforms/core";
+import * as React from "react";
+import ReactMarkdown from "react-markdown";
 
-// TODO: typings
-export class Markdown extends React.Component<any, any> {
-
+interface MyProps {
+  readonly uischema: ControlElement;
+}
+export class Markdown extends React.Component<MyProps> {
   render() {
     return (
-      <div>
-        <ReactMarkdown source={this.props.uischema.text} />
-      </div>
+      typeof this.props.uischema.label === "string" && (
+        <div>
+          <ReactMarkdown source={this.props.uischema.label} />
+        </div>
+      )
     );
   }
 }

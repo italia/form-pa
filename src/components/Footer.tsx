@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button } from "design-react-kit";
 import QRCode from "./QRCode";
 
-export const Footer = () => {
+export const Footer = (): JSX.Element => {
   const [isVisible, setVisible] = useState(false);
   return (
     <div className="pb-3">
-      <QRCode display={isVisible} toggle={() => setVisible(!isVisible)} />
+      <QRCode display={isVisible} toggle={(): void => setVisible(!isVisible)} />
       <Button color="primary" icon={false} tag="button">
         Save
       </Button>{" "}
@@ -17,7 +17,7 @@ export const Footer = () => {
         color="secondary"
         icon={false}
         tag="button"
-        onClick={() => setVisible(!isVisible)}
+        onClick={(): void => setVisible(!isVisible)}
       >
         Show/Hide QRCode
       </Button>{" "}

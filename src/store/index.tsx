@@ -25,7 +25,6 @@ import { combineReducers, createStore } from "redux";
 import MarkdownControl from "../renderers/MarkdownControl";
 import markdownControlTester from "../renderers/markdownControlTester";
 
-
 const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   jsonforms: {
     cells: materialCells,
@@ -33,9 +32,9 @@ const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
   },
 });
 
-
-
 // Register custom renderer for the Redux tab
-store.dispatch(Actions.registerRenderer(markdownControlTester, MarkdownControl));
+store.dispatch(
+  Actions.registerRenderer(markdownControlTester, MarkdownControl)
+);
 
 export default store;

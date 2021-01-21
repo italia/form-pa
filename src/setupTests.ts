@@ -16,13 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom/extend-expect";
 
-HTMLCanvasElement.prototype.getContext = () => {
-    // return whatever getContext has to return
-    return null;
-  };
+// eslint-disable-next-line functional/immutable-data
+HTMLCanvasElement.prototype.getContext = () => null;

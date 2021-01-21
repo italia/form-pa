@@ -19,11 +19,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { App } from "./App";
 
 import { Provider } from "react-redux";
 
 import { JsonFormsReduxContext } from "@jsonforms/react";
+import { App } from "./App";
 import store from "./store";
 import { loadSchema } from "./schemaLoader";
 
