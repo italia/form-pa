@@ -1,8 +1,32 @@
 import React from "react";
 import SPID from "spid-smart-button/dist/spid-button-umd.js";
 
+interface ExtraProviders {
+  readonly protocols: ReadonlyArray<string>;
+  readonly entityName: string;
+  readonly entityID: string;
+  readonly active: boolean;
+}
+interface SPIDConfig {
+  readonly lang?: string;
+  readonly selector?: string;
+  readonly method?: string;
+  readonly protocol?: string;
+  readonly size?: string;
+  readonly url?: string;
+  readonly fieldName?: string;
+  readonly extraFields?: {
+    readonly [key: string]: string;
+  };
+  readonly mapping: {
+    readonly [key: string]: number | string;
+  };
+  readonly supported: ReadonlyArray<string>;
+  readonly extraProviders: ReadonlyArray<ExtraProviders>;
+}
+
 interface Props {
-  spidConfig: any;
+  readonly spidConfig: SPIDConfig;
 }
 
 class SPIDButton extends React.Component<Props> {

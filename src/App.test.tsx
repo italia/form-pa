@@ -18,12 +18,10 @@
 
 import React from "react";
 // import { render } from "@testing-library/react";
+import { render } from "../test-utils";
 import { App } from "./App";
-// @ts-ignore
-import { render, fireEvent, screen } from '../test-utils';
 
-
-describe("render components", ()=> {
+describe("render components", () => {
   it("renders welcome message", () => {
     const { getByText } = render(<App />);
     expect(getByText("Ente appartenenza/Owner")).toBeInTheDocument();

@@ -19,9 +19,9 @@
 import React from "react";
 import "./App.css";
 
-import { HeaderBar } from "./components/HeaderBar";
 import { JsonFormsDispatch } from "@jsonforms/react";
 import { Container } from "design-react-kit";
+import { HeaderBar } from "./components/HeaderBar";
 import { Footer } from "./components/Footer";
 
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
@@ -29,14 +29,12 @@ import "typeface-titillium-web/index.css";
 import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
 
-export const App = () => {
-  return (
-    <div className="App">
-      <HeaderBar className="App-header" />
-      <Container>
-        <JsonFormsDispatch />
-        <Footer />
-      </Container>
-    </div>
-  );
-};
+export const App = (): JSX.Element => (
+  <div className="App">
+    <HeaderBar className="App-header" />
+    <Container>
+      <JsonFormsDispatch />
+      <Footer />
+    </Container>
+  </div>
+);
