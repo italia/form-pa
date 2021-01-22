@@ -55,7 +55,7 @@ const fetchSchema = async (
   dereference: boolean = false
 ): Promise<$RefParser.JSONSchema | string> => {
   const text = await (await fetch(url)).text();
-  const out = yaml.safeLoad(text);
+  const out = yaml.load(text);
 
   if (!out) {
     return "";
