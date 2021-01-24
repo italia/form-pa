@@ -17,19 +17,23 @@
  */
 
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
 
-import { Provider } from "react-redux";
+import { JsonForms } from "@jsonforms/react";
+import { useFormParams } from "../hooks/useFormParams";
 
-import { App } from "./App";
-import store from "./store";
+export const Form = (): JSX.Element => {
+  const [formParam, setFormData] = useFormParams();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  return (
+    <JsonForms
+      cells={formParam?.cells}
+      schema={formParam?.schema}
+      uischema={formParam?.uischema}
+      data={formParam?.data || {}}
+      renderers={formParam?.renderers || []}
+      onChange={({ data }) => {
+        setFormData(data);
+      }}
+    />
+  );
+};

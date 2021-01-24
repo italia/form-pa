@@ -1,8 +1,14 @@
-import { Actions, JsonSchema, UISchemaElement } from "@jsonforms/core";
+import { JsonSchema, UISchemaElement } from "@jsonforms/core";
 import yaml from "js-yaml";
-import { Store } from "redux";
 import $RefParser from "@apidevtools/json-schema-ref-parser";
 import { set } from "lodash";
+import { JsonFormsInitStateProps } from "@jsonforms/react";
+import {
+  materialRenderers,
+  materialCells,
+} from "@jsonforms/material-renderers";
+import markdownControlTester from "./renderers/markdownControlTester";
+import MarkdownControl from "./renderers/MarkdownControl";
 
 const isYAML = process.env.YAML_SOURCE || true;
 
@@ -83,35 +89,36 @@ const getDataFromURL = () => {
   };
 };
 
-export const loadSchema = (store: Store): void => {
-  fetchSchema(schemaURL)
-    .then((schemaRetrieved) => {
-      if (!schemaRetrieved) {
-        return;
+export const loadSchema = async (): Promise<JsonFormsInitStateProps> => {
+  const schemaRetrieved = await fetchSchema(schemaURL)
+    .then((sr) => {
+      if (!sr) {
+        throw new Error(`${sr}`);
       }
-
-      $RefParser.dereference(schemaRetrieved, (err, schema) => {
-        if (err) {
-          throw err;
-        }
-        if (schema === null) {
-          throw new Error(`${schema}`);
-        }
-
-        fetchSchema(uischemaURL, true)
-          .then((uischema) => {
-            const ui: UISchemaElement = JSON.parse(JSON.stringify(uischema));
-            const sc: JsonSchema = JSON.parse(JSON.stringify(schema));
-            store.dispatch(Actions.init(getDataFromURL(), sc, ui));
-          })
-          .catch(() => {
-            throw new Error(
-              `fetchSchema error loading uischemaURL ${uischemaURL}`
-            );
-          });
-      });
+      return sr;
     })
     .catch(() => {
       throw new Error(`fetchSchema error loading schemaURL ${schemaURL}`);
     });
+
+  const schema = await $RefParser.dereference(schemaRetrieved);
+
+  const uischema = await fetchSchema(uischemaURL, true)
+    .then((uischemaa) => uischemaa)
+    .catch(() => {
+      throw new Error(`fetchSchema error loading uischemaURL ${uischemaURL}`);
+    });
+
+  const ui: UISchemaElement = JSON.parse(JSON.stringify(uischema));
+  const sc: JsonSchema = JSON.parse(JSON.stringify(schema));
+  return {
+    cells: materialCells,
+    data: getDataFromURL(),
+    renderers: [
+      ...materialRenderers,
+      { renderer: MarkdownControl, tester: markdownControlTester },
+    ],
+    schema: sc,
+    uischema: ui,
+  };
 };

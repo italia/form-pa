@@ -19,10 +19,10 @@
 import React from "react";
 import "./App.css";
 
-import { JsonFormsDispatch } from "@jsonforms/react";
 import { Container } from "design-react-kit";
 import { HeaderBar } from "./components/HeaderBar";
 import { Footer } from "./components/Footer";
+import { Form } from "./components/Form";
 
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "typeface-titillium-web/index.css";
@@ -33,7 +33,7 @@ export const App = (): JSX.Element => (
   <div className="App">
     <HeaderBar className="App-header" />
     <Container>
-      <JsonFormsDispatch />
+      <Form />
       <Footer />
     </Container>
   </div>
