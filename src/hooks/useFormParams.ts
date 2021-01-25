@@ -4,7 +4,6 @@ import { loadSchema } from "../schemaLoader";
 
 export const useFormParams = () => {
   const [formParam, setFormParam] = useState<JsonFormsInitStateProps>();
-  const [formData, setFormData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,5 +12,5 @@ export const useFormParams = () => {
     void fetchData();
   }, []);
 
-  return [formParam, setFormData] as const;
+  return [formParam] as const;
 };
