@@ -27,7 +27,6 @@ import {
   ModalFooter,
 } from "design-react-kit";
 import styled from "styled-components";
-import { JsonFormsState } from "@jsonforms/core";
 
 const ResponsiveSvgWrapper = styled.div`
   & > svg {
@@ -65,8 +64,8 @@ const QRCode = ({ data, display, toggle }: Props): JSX.Element => {
   );
 };
 
-const mapStateToProps = (state: JsonFormsState) => ({
-  data: state.jsonforms?.core?.data,
+const mapStateToProps = (state: any) => ({
+  data: state.form?.data,
 });
 
 const QRCodeConnected = connect(mapStateToProps)(QRCode);
