@@ -22,7 +22,7 @@ import { JsonForms } from "@jsonforms/react";
 import { useFormParams } from "../hooks/useFormParams";
 
 export const Form = (): JSX.Element => {
-  const [formParam, setFormData] = useFormParams();
+  const [formParam] = useFormParams();
 
   return (
     <JsonForms
@@ -31,9 +31,7 @@ export const Form = (): JSX.Element => {
       uischema={formParam?.uischema}
       data={formParam?.data || {}}
       renderers={formParam?.renderers || []}
-      onChange={({ data }) => {
-        setFormData(data);
-      }}
+      onChange={({ data }) => null}
     />
   );
 };
