@@ -36,6 +36,5 @@ const store = createStore(
       window.__REDUX_DEVTOOLS_EXTENSION__()
     : undefined
 );
-store.subscribe(() => console.log(store.getState()));
 
 export default store;
