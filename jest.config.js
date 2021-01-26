@@ -22,7 +22,12 @@ module.exports = {
     "<rootDir>"
   ],
   
-  moduleDirectories: ['<rootDir>/node_modules', '<rootDir>/node_modules/design-react-kit/', '<rootDir>/src'],
+  moduleDirectories: [
+    '<rootDir>/node_modules',
+    '<rootDir>/node_modules/design-react-kit/',
+    '<rootDir>/src',
+    '<rootDir>/utils',
+  ],
 
   // Test spec file resolution pattern
   // Matches parent folder `__tests__` and filename
