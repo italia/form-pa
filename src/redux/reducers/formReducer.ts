@@ -1,4 +1,3 @@
-import { Action } from "redux";
 import { SET_FORM_DATA } from "../actions/actionTypes";
 import { FormDataAction } from "../actions/types";
 
