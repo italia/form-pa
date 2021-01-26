@@ -22,19 +22,13 @@ import "./index.css";
 
 import { Provider } from "react-redux";
 
-import { JsonFormsReduxContext } from "@jsonforms/react";
 import { App } from "./App";
-import store from "./store";
-import { loadSchema } from "./schemaLoader";
-
-loadSchema(store);
+import store from "./redux/store";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <JsonFormsReduxContext>
-        <App />
-      </JsonFormsReduxContext>
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

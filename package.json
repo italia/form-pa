@@ -77,7 +77,8 @@
     "styled-components": "^5.2.1",
     "typeface-lora": "1.1.13",
     "typeface-roboto-mono": "1.1.13",
-    "typeface-titillium-web": "1.1.13"
+    "typeface-titillium-web": "1.1.13",
+    "typesafe-actions": "^5.1.0"
   },
   "browserslist": {
     "production": [

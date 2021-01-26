@@ -16,25 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Actions, jsonformsReducer } from "@jsonforms/core";
-import {
-  materialRenderers,
-  materialCells,
-} from "@jsonforms/material-renderers";
-import { combineReducers, createStore } from "redux";
-import MarkdownControl from "../renderers/MarkdownControl";
-import markdownControlTester from "../renderers/markdownControlTester";
+import React from "react";
 
-const store = createStore(combineReducers({ jsonforms: jsonformsReducer() }), {
-  jsonforms: {
-    cells: materialCells,
-    renderers: materialRenderers,
-  },
-});
+import { useDispatch } from "react-redux";
+import { JsonForms } from "@jsonforms/react";
+import { JsonFormsCore } from "@jsonforms/core";
+import { useFormParams } from "../hooks/useFormParams";
+import { setFormData } from "../redux/actions";
 
-// Register custom renderer for the Redux tab
-store.dispatch(
-  Actions.registerRenderer(markdownControlTester, MarkdownControl)
-);
+export const Form = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const [formParam] = useFormParams();
 
-export default store;
+  const handleFormData = (d: JsonFormsCore) => {
+    dispatch(setFormData(d));
+  };
+
+  return (
+    <JsonForms
+      cells={formParam?.cells}
+      schema={formParam?.schema}
+      uischema={formParam?.uischema}
+      data={formParam?.data || {}}
+      renderers={formParam?.renderers || []}
+      onChange={handleFormData}
+    />
+  );
+};

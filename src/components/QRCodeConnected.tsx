@@ -15,27 +15,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+import Types from "MyTypes";
 
-import React from "react";
-// import { render } from "@testing-library/react";
-import { render } from "../test-utils";
-import { App } from "./App";
+import { connect } from "react-redux";
+import QRCode from "./QRCode";
 
-describe("render components", () => {
-  it("renders welcome message", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Ente appartenenza/Owner")).toBeInTheDocument();
-  });
-
-  it("renders login button", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Entra con SPID")).toBeInTheDocument();
-  });
-
-  it("renders form buttons", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Save")).toBeInTheDocument();
-    expect(getByText("Reset")).toBeInTheDocument();
-    expect(getByText("Show/Hide QRCode")).toBeInTheDocument();
-  });
+const mapStateToProps = (state: Types.RootState) => ({
+  data: state.form?.data,
 });
+
+const QRCodeConnected = connect(mapStateToProps)(QRCode);
+
+export default QRCodeConnected;

@@ -1,24 +1,5 @@
-/* form-pa: Send forms to PAs with SPID
- * Copyright (C) 2020 Dipartimento per la Trasformazione Digitale
- *                    Presidenza del Consiglio dei Ministri
-
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 import React from "react";
 import Qr from "qrcode.react";
-import { connect } from "react-redux";
 import {
   Button,
   Modal,
@@ -27,7 +8,7 @@ import {
   ModalFooter,
 } from "design-react-kit";
 import styled from "styled-components";
-import { JsonFormsState } from "@jsonforms/core";
+import Types from "MyTypes";
 
 const ResponsiveSvgWrapper = styled.div`
   & > svg {
@@ -37,9 +18,8 @@ const ResponsiveSvgWrapper = styled.div`
   }
 `;
 
-interface Props {
+interface Props extends Types.FormState {
   readonly toggle: () => void;
-  readonly data: string;
   readonly display: boolean;
 }
 
@@ -65,10 +45,4 @@ const QRCode = ({ data, display, toggle }: Props): JSX.Element => {
   );
 };
 
-const mapStateToProps = (state: JsonFormsState) => ({
-  data: state.jsonforms?.core?.data,
-});
-
-const QRCodeConnected = connect(mapStateToProps)(QRCode);
-
-export default QRCodeConnected;
+export default QRCode;

@@ -1,16 +1,15 @@
-// test-utils.js
 import React from "react";
 import { render as rtlRender } from "@testing-library/react";
 import { Provider } from "react-redux";
 // Import your own store
-import localStore from "./src/store";
+import localStore from "./src/redux/store";
 
-function render(ui, { initialState, store = localStore, ...renderOptions } = {}) {
-  function Wrapper({ children }) {
-    return <Provider store={store}>{children}</Provider>;
-  }
+const render = (ui, { store = localStore, ...renderOptions } = {}) => {
+  const Wrapper = ({ children }) => (
+    <Provider store={store}>{children}</Provider>
+  );
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
-}
+};
 
 // re-export everything
 export * from "@testing-library/react";
