@@ -4,12 +4,12 @@ import formReducer from "./formReducer";
 describe("formReducer", () => {
   it("should return the initial state (null)", () => {
     const nullActionMock = {
-      type: actionMock.type,
-      payload:{
+      payload: {
         ...actionMock.payload,
-        data: null
-      }
-    }
+        data: null,
+      },
+      type: actionMock.type,
+    };
     expect(formReducer(undefined, nullActionMock)).toEqual({
       data: {},
     });
@@ -27,9 +27,15 @@ describe("formReducer", () => {
         givenName: "Test",
       },
     };
-    actionMock.payload.data = { richiedente };
-    expect(formReducer(undefined, actionMock)).toEqual({
-      data: { richiedente },
+    const dataActionMock = {
+      payload: {
+        ...actionMock.payload,
+        data: richiedente,
+      },
+      type: actionMock.type,
+    };
+    expect(formReducer(undefined, dataActionMock)).toEqual({
+      data: { ...richiedente },
     });
   });
 });

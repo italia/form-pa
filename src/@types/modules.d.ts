@@ -1,2 +1,2 @@
 declare module "MyTypes";
-declare module 'test-utils';
+declare module "test-utils";
