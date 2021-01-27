@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@apidevtools/json-schema-ref-parser": "^9.0.7",
-    "@jsonforms/core": "^2.4.1",
+    "@jsonforms/core": "^2.5.0",
     "@jsonforms/examples": "^2.4.1",
     "@jsonforms/material-renderers": "^2.4.1",
     "@jsonforms/react": "^2.4.1",
