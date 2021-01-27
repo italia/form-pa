@@ -6,8 +6,9 @@ module.exports = {
   // Jest transformations -- this adds support for TypeScript
   // using ts-jest
   transform: {
-    // "^.+\\.tsx?$": "ts-jest"
-    "^.+\\.(ts|js)x?$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx$": "babel-jest"
+    // "^.+\\.(ts|js)x?$": "ts-jest"
   },
 
   //ignore css imported in tsx
