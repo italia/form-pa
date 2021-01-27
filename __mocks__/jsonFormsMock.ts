@@ -3,6 +3,7 @@ import {
   materialCells,
   materialRenderers,
 } from "@jsonforms/material-renderers";
+import { FormDataAction } from "../src/redux/actions/types";
 
 export const schemaMock: JsonSchema7 = {
   properties: {
@@ -15,7 +16,18 @@ export const schemaMock: JsonSchema7 = {
   type: "object",
 };
 
+
 export const uischemaMock: UISchemaElement = Generate.uiSchema(schemaMock);
+
+export const actionMock: FormDataAction = {
+  type: "SET_FORM_DATA",
+  payload: {
+    data: {},
+    schema: schemaMock,
+    uischema: uischemaMock,
+  },
+};
+
 export const dataMock = {
   foo: "testtest",
 };
