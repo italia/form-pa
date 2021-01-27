@@ -1,4 +1,17 @@
 module.exports = {
+  ignorePatterns: [
+    ".eslintrc.js",
+    "node_modules",
+    "generated",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__/*",
+    "**/__mocks__/*",
+    "Dangerfile.*",
+    "*.d.ts",
+  ],
   extends: ["@pagopa/eslint-config/strong"],
   rules: {
     // Any project level custom rule

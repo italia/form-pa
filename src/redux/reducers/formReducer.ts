@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action: FormDataAction) => {
-  if (action.type === SET_FORM_DATA) {
+  if (action.type === SET_FORM_DATA && action.payload.data) {
     return {
       data: action.payload.data,
     };

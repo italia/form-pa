@@ -26,7 +26,7 @@ import {
 } from "@jsonforms/material-renderers";
 import { act } from "react-dom/test-utils";
 import { JsonForms } from "@jsonforms/react";
-import { render } from "../test-utils";
+import { render } from "test-utils";
 import { Form } from "./components/Form";
 
 afterEach(cleanup);

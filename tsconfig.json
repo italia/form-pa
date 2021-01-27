@@ -15,7 +15,20 @@
     "noEmit": true,
     "jsx": "react",
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "test-utils": ["./utils/test-utils"]
+    }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/**/__tests__/*",
+    "src/**/__mocks__/*"
+  ]
 }
