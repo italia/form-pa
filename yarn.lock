@@ -1284,10 +1284,10 @@
     moment "^2.24.0"
     uuid "^3.3.3"
 
-"@jsonforms/react@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@jsonforms/react/-/react-2.4.1.tgz#6b9ac4821375b1a13eacdb715b381de67f0b73a1"
-  integrity sha512-HPeCzByzU9Sx1f62vSa7nJl0Ux64txw7oFlss/FLCS0Lb2Cwa2IHU7IcUrW2CqNQwzfNf6XR1m1FN3Twji5IOQ==
+"@jsonforms/react@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/react/-/react-2.5.0.tgz#112fb9ce2473b82901f7d40b0b740821b09c24d9"
+  integrity sha512-1qLU0r2GJihZkRgv5qjNwQvgJWY2f3SyNRPCJy1vffvDTipu2C4EO1H3hMqfy7Cru6JqkfdL0HlzH57fKF18vA==
   dependencies:
     lodash "^4.17.15"
     object-hash "^2.0.0"
