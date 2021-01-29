@@ -1273,10 +1273,10 @@
     ajv-i18n "^3.5.0"
     redux "^4.0.4"
 
-"@jsonforms/material-renderers@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@jsonforms/material-renderers/-/material-renderers-2.4.1.tgz#9469557e3e36da2d1c0c652a3ad890b183bc4fa9"
-  integrity sha512-92nzXwkKpyDF5ehpslO4r7Rum/+k24DaQr8Q96dMQ2RGOK+m3ug8rwOeAJZtsOyq6zslkhTiUjlmFSsZQXyayQ==
+"@jsonforms/material-renderers@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/material-renderers/-/material-renderers-2.5.0.tgz#7d71ebca44715926f77d7aed6f983b2aea377afc"
+  integrity sha512-iDVU42VOLPh5gWghOXHN8EEKFVV3Qmxq44c7NOITowD4CsvsrouNgKUXp424ulsBZaqHfeWhwMPuCG2dmXr4ew==
   dependencies:
     "@date-io/moment" "1.3.11"
     "@material-ui/pickers" "^3.2.8"
