@@ -62,7 +62,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
-    "bootstrap-italia": "^1.4.1",
+    "bootstrap-italia": "^1.4.3",
     "design-react-kit": "^3.3.2",
     "gh-pages": "^3.1.0",
     "js-yaml": "^4.0.0",
