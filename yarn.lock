@@ -1252,7 +1252,7 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@jsonforms/core@^2.4.1", "@jsonforms/core@^2.5.0":
+"@jsonforms/core@^2.5.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@jsonforms/core/-/core-2.5.0.tgz#46b0989a811fdf7da14572cfce4d29ba4d6c1609"
   integrity sha512-BOVJjOsO0LF2NPDoOpz7vvg9FZW4oZ6HJmOa2kpYJ2u9Ky5ZOC9gaColGrk/Z+TK8NhJupR2cNdnMNQz3A51qQ==
@@ -1264,12 +1264,12 @@
     uri-js "^4.2.2"
     uuid "^3.3.3"
 
-"@jsonforms/examples@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@jsonforms/examples/-/examples-2.4.1.tgz#14723a403c24170edc45d722ee14cf738b68175f"
-  integrity sha512-uEThfA7VDrkfFtH0KNnx1p+gMMzMUk4DinYHdmLoS+Q/zv2qLxLGZe5BT/CX2ENo0ITySH2h3BWu0JpPCP/ZAw==
+"@jsonforms/examples@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/examples/-/examples-2.5.0.tgz#f7ebadc81fc912c2419b82fc61089551105f8c67"
+  integrity sha512-PDJCFihR5h25AiwwrQx0we8GaorWbjxP3XLSLWmjGT418VAQHnj89QAqphnUut+K2im34ww40l8JiiEBwfEU3Q==
   dependencies:
-    "@jsonforms/core" "^2.4.1"
+    "@jsonforms/core" "^2.5.0"
     ajv-i18n "^3.5.0"
     redux "^4.0.4"
 
