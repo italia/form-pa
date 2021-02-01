@@ -6,6 +6,8 @@ import {
 import React from "react";
 import { render } from "test-utils";
 import { Footer } from "./Footer";
+import localStore from "../redux/store";
+import { setFormData } from "../redux/actions";
 
 describe("render components", () => {
   const toggleQRCode = "Show/Hide QRCode";
@@ -43,5 +45,26 @@ describe("render components", () => {
       })
     );
     await waitForElementToBeRemoved(() => queryByText(QRCodeText));
+  });
+});
+
+describe("buttons click handler", () => {
+  it("reset form action", () => {
+    const store = localStore;
+    store.dispatch(
+      setFormData({
+        data: { richiedente: { given_name: "Reset" } },
+      })
+    );
+
+    const { getByText } = render(<Footer />);
+    fireEvent(
+      getByText("Reset"),
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    expect(store.getState()).toEqual({ form: { data: {} } });
   });
 });
