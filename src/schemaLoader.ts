@@ -73,7 +73,13 @@ const fetchSchema = async (
   return await $RefParser.dereference(out);
 };
 
-const getDataFromURL = () => {
+interface Richiedente {
+  readonly richiedente: {
+    readonly [key: string]: string;
+  };
+}
+
+export const getDataFromURL = (): Richiedente => {
   const urlParams = new URLSearchParams(window.location.search);
   const richiedente: { readonly [key: string]: string } = {};
 
