@@ -21,12 +21,17 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { JsonForms } from "@jsonforms/react";
 import { JsonFormsCore } from "@jsonforms/core";
+import { useSelector } from "react-redux";
+import Types from "MyTypes";
 import { useFormParams } from "../hooks/useFormParams";
 import { setFormData } from "../redux/actions";
 
 export const Form = (): JSX.Element => {
   const dispatch = useDispatch();
   const [formParam] = useFormParams();
+  const jsonformsData = useSelector(
+    (state: Types.RootState) => state.form?.data
+  );
 
   const handleFormData = (d: JsonFormsCore) => {
     dispatch(setFormData(d));
@@ -37,7 +42,7 @@ export const Form = (): JSX.Element => {
       cells={formParam?.cells}
       schema={formParam?.schema}
       uischema={formParam?.uischema}
-      data={formParam?.data || {}}
+      data={jsonformsData}
       renderers={formParam?.renderers || []}
       onChange={handleFormData}
     />
