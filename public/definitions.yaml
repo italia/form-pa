@@ -183,6 +183,35 @@ responses:
           $ref: 'definitions.yaml#/schemas/Problem'
     description: Unexpected error
 schemas:
+  SchedaAnagraficaSUAP:
+    properties:
+      dichiarante:
+        $ref: 'definitions.yaml#/schemas/Dichiarante'
+      procuratore:
+        $ref: 'definitions.yaml#/schemas/Procuratore'
+  Dichiarante:
+    properties:
+      inQualita:
+        type: array
+        items:
+          type: object
+          properties:
+            selectedOption:
+              type: string
+              enum:
+                - titolare
+                - legaleRappresentante
+                - altro
+            altro:
+              type: string
+  Procuratore:
+    properties:
+      tipoProcura:
+        type: string
+        enum:
+          - Procura Delega
+          - Agenzia Imprese
+
   IdentityDocument:
     description: |-
       Un documento di identità
