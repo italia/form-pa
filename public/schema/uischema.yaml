@@ -13,7 +13,7 @@ elements:
     scope: ""
     label: |
       ### Scheda anagrafica riportante i dati del dichiarante, comune a tutti i moduli SUAP
-  - type: HorizontalLayout
+  - type: VerticalLayout
     elements:
     - type: Control
       label: "In Qualità"
@@ -25,7 +25,7 @@ elements:
             - type: Control
               scope: "#/properties/selectedOption"
               options:
-                format: "radio"
+                format: radio
             - type: Control
               scope: "#/properties/altro"
               rule:
@@ -33,4 +33,21 @@ elements:
                 condition:
                   scope: "#/properties/selectedOption"
                   schema:
-                    const: altro
+                    const: Altro
+    - type: Control
+      label: ImpresaAnagrafica
+      scope: "#/properties/SchedaAnagraficaSUAP/properties/impresaAnagrafica"
+    - type: Control
+      label: Procuratore
+      scope: "#/properties/SchedaAnagraficaSUAP/properties/procuratore/properties/tipoProcura"
+      options:
+        detail:
+          type: VerticalLayout
+          elements:
+            - type: Control
+              scope: "#/properties/selectedOption"
+              options:
+                format: radio
+            - type: Control
+              scope: "#/properties/denominazione"
+
