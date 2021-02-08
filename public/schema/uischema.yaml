@@ -50,4 +50,7 @@ elements:
                 format: radio
             - type: Control
               scope: "#/properties/denominazione"
+    - type: Control
+      label: IntegrazioneAnagrafica
+      scope: "#/properties/IntegrazioneAnagrafica"
 

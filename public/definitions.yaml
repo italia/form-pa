@@ -191,6 +191,38 @@ schemas:
         $ref: 'definitions.yaml#/schemas/ImpresaAnagrafica'
       procuratore:
         $ref: 'definitions.yaml#/schemas/Procuratore'
+  IntegrazioneAnagrafica:
+    properties:
+      indirizzoAttivita:
+        $ref: 'definitions.yaml#/schemas/IndirizzoContattiFoniaAttivita'
+      datiCatastali:
+        $ref: 'definitions.yaml#/schemas/DatiCatastaliBaseType'
+  IndirizzoContattiFoniaAttivita:
+    properties:
+      indirizzo:
+        type: string #IndirizzoType
+      contatto:
+        $ref: 'definitions.yaml#/schemas/ContattiFoniaType'
+  DatiCatastaliBaseType:
+    properties:
+      coordinateCatastali: #CoordinateCatastaliType
+        type: string
+  ContattiType:
+    properties:
+      PEC:
+        $ref: 'definitions.yaml#/schemas/EMail'
+      email:
+        $ref: 'definitions.yaml#/schemas/EMail'
+      contattiFoniaType:
+        $ref: 'definitions.yaml#/schemas/ContattiFoniaType'
+  ContattiFoniaType:
+    properties:
+      telefono:
+        type: string
+      cellulare:
+        type: string
+      fax:
+        type: string
   Dichiarante:
     properties:
       inQualita:

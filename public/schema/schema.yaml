@@ -2,6 +2,8 @@ type: object
 properties:
     SchedaAnagraficaSUAP:
       $ref: "definitions.yaml#/schemas/SchedaAnagraficaSUAP"
+    IntegrazioneAnagrafica:
+      $ref: "definitions.yaml#/schemas/IntegrazioneAnagrafica"
 
 __filemeta:
     filename: src/pages/docs/components/multiple-forms/FormsExamples.js
