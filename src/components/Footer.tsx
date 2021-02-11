@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Types from "MyTypes";
 import { setFormData, submitFormData } from "../redux/actions";
 import QRCodeConnected from "./QRCodeConnected";
+import { ReviewModal } from "./ReviewModal";
 
 export const Footer = (): JSX.Element => {
-  const [isVisible, setVisible] = useState(false);
+  const [isQrModalVisible, setQrModalVisible] = useState(false);
+  const [isReviewModalVisible, setReviewModalVisible] = useState(false);
   const jsonformsData = useSelector(
     (state: Types.RootState) => state.form?.data
   );
@@ -14,6 +16,7 @@ export const Footer = (): JSX.Element => {
   const dispatch = useDispatch();
   const handleSubmit = () => {
     dispatch(submitFormData(jsonformsData));
+    setReviewModalVisible(!isReviewModalVisible);
   };
   const clearData = () => {
     dispatch(
@@ -25,8 +28,12 @@ export const Footer = (): JSX.Element => {
   return (
     <div className="pb-3">
       <QRCodeConnected
-        display={isVisible}
-        toggle={(): void => setVisible(!isVisible)}
+        display={isQrModalVisible}
+        toggle={(): void => setQrModalVisible(!isQrModalVisible)}
+      />
+      <ReviewModal
+        display={isReviewModalVisible}
+        toggle={(): void => setReviewModalVisible(!isReviewModalVisible)}
       />
       <Button color="primary" icon={false} tag="button" onClick={handleSubmit}>
         Save
@@ -38,7 +45,7 @@ export const Footer = (): JSX.Element => {
         color="secondary"
         icon={false}
         tag="button"
-        onClick={(): void => setVisible(!isVisible)}
+        onClick={(): void => setQrModalVisible(!isQrModalVisible)}
       >
         Show/Hide QRCode
       </Button>{" "}
