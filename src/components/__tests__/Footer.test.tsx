@@ -1,53 +1,70 @@
 import {
   fireEvent,
-  waitFor,
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import { render } from "test-utils";
 import { Footer } from "../Footer";
 import localStore from "../../redux/store";
 import { setFormData } from "../../redux/actions";
 
+const saveButtonTestID = "review-modal-button";
+const qrButtonTestID = "qr-modal-button";
+const resetButtonTestID = "reset-button";
+
 describe("render components", () => {
-  const toggleQRCode = "Show/Hide QRCode";
   it("renders form buttons", () => {
-    const { getByText } = render(<Footer />);
-    expect(getByText("Save")).toBeInTheDocument();
-    expect(getByText("Reset")).toBeInTheDocument();
-    expect(getByText(toggleQRCode)).toBeInTheDocument();
+    const { getByTestId } = render(<Footer />);
+    expect(getByTestId(saveButtonTestID)).toBeInTheDocument();
+    expect(getByTestId(resetButtonTestID)).toBeInTheDocument();
+    expect(getByTestId(qrButtonTestID)).toBeInTheDocument();
+  });
+});
+
+describe("render modals", () => {
+  const reviewModalTestID = "review-modal";
+  const qrModalTestID = "qr-modal";
+
+  it("renders qr modal", async () => {
+    const { getByTestId } = render(<Footer />);
+    const qrButton = getByTestId(qrButtonTestID);
+    userEvent.click(qrButton);
+    expect(await screen.findByTestId(qrModalTestID)).toBeInTheDocument();
   });
 
-  it("toggle modal clicking on show QRCode", async () => {
-    const { getByText, queryByText } = render(<Footer />);
-    const QRCodeText = "QRCode";
+  it("closes the qr modal on Close button click", async () => {
+    render(<Footer />);
+    const qrButton = await screen.findByTestId(qrButtonTestID);
+    userEvent.click(qrButton);
+    expect(screen.queryByTestId(qrModalTestID)).toBeInTheDocument();
+    expect(screen.getByTestId("close-qr-modal")).toBeInTheDocument();
+    const closeButton = await screen.findByTestId("close-qr-modal");
+    userEvent.click(closeButton);
+    await waitForElementToBeRemoved(() => screen.queryByTestId(qrModalTestID));
+    expect(screen.queryByTestId(qrModalTestID)).not.toBeInTheDocument();
+  });
 
-    // check if it is closed
-    expect(queryByText(QRCodeText)).not.toBeInTheDocument();
-    const btnQR = getByText(toggleQRCode);
-    // opening modal
-    fireEvent(
-      btnQR,
-      new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-      })
+  it("renders review modal", async () => {
+    const { getByTestId } = render(<Footer />);
+    const saveButton = getByTestId(saveButtonTestID);
+    userEvent.click(saveButton);
+    expect(await screen.findByTestId(reviewModalTestID)).toBeInTheDocument();
+  });
+
+  it("closes the review modal on Close button click", async () => {
+    render(<Footer />);
+    const saveButton = await screen.findByTestId(saveButtonTestID);
+    userEvent.click(saveButton);
+    expect(screen.queryByTestId(reviewModalTestID)).toBeInTheDocument();
+    expect(screen.getByTestId("close-review-modal")).toBeInTheDocument();
+    const closeButton = await screen.findByTestId("close-review-modal");
+    userEvent.click(closeButton);
+    await waitForElementToBeRemoved(() =>
+      screen.queryByTestId(reviewModalTestID)
     );
-    await waitFor(() => {
-      expect(queryByText(QRCodeText)).toBeInTheDocument();
-    });
-    // closing modal
-    fireEvent(
-      btnQR,
-      new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-      })
-    );
-    await waitForElementToBeRemoved(() => queryByText(QRCodeText));
-    expect(queryByText(QRCodeText)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(reviewModalTestID)).not.toBeInTheDocument();
   });
 });
 
@@ -60,38 +77,14 @@ describe("buttons click handler", () => {
       })
     );
 
-    const { getByText } = render(<Footer />);
+    const { getByTestId } = render(<Footer />);
     fireEvent(
-      getByText("Reset"),
+      getByTestId(resetButtonTestID),
       new MouseEvent("click", {
         bubbles: true,
         cancelable: true,
       })
     );
     expect(store.getState()).toEqual({ form: { data: {} } });
-  });
-});
-
-describe("render modals", () => {
-  const toggleQRCode = "Show/Hide QRCode";
-  const saveButtonText = "Save";
-
-  it("renders review modal", async () => {
-    const { getByText } = render(<Footer />);
-    const saveButton = getByText(saveButtonText);
-    userEvent.click(saveButton);
-    expect(await screen.findByTestId("review-modal")).toBeInTheDocument();
-  });
-
-  it('closes the review modal on Close button click', async () => {
-    render(<Footer />);
-    const saveButton = await screen.findByTestId('review-modal-button');
-    userEvent.click(saveButton);
-    expect(screen.queryByTestId('review-modal')).toBeInTheDocument();
-    expect(screen.getByTestId('close-review-modal')).toBeInTheDocument();
-    const closeButton = await screen.findByTestId('close-review-modal');
-    userEvent.click(closeButton);
-    await waitForElementToBeRemoved(() => screen.queryByTestId('review-modal'));
-    expect(screen.queryByTestId('review-modal')).not.toBeInTheDocument();
   });
 });
