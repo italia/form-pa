@@ -35,10 +35,22 @@ export const Footer = (): JSX.Element => {
         display={isReviewModalVisible}
         toggle={(): void => setReviewModalVisible(!isReviewModalVisible)}
       />
-      <Button color="primary" icon={false} tag="button" onClick={handleSubmit}>
+      <Button
+        color="primary"
+        icon={false}
+        tag="button"
+        onClick={handleSubmit}
+        data-testid="review-modal-button"
+      >
         Save
       </Button>{" "}
-      <Button color="secondary" icon={false} tag="button" onClick={clearData}>
+      <Button
+        color="secondary"
+        icon={false}
+        tag="button"
+        onClick={clearData}
+        data-testid="reset-button"
+      >
         Reset
       </Button>{" "}
       <Button
@@ -46,6 +58,7 @@ export const Footer = (): JSX.Element => {
         icon={false}
         tag="button"
         onClick={(): void => setQrModalVisible(!isQrModalVisible)}
+        data-testid="qr-modal-button"
       >
         Show/Hide QRCode
       </Button>{" "}

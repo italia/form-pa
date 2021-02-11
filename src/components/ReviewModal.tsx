@@ -28,13 +28,23 @@ export const ReviewModal = ({ display, toggle }: Props): JSX.Element => {
     (state: Types.RootState) => state.form?.data
   );
   return (
-    <Modal className={classes.reviewModal} isOpen={display} toggle={toggle}>
+    <Modal
+      className={classes.reviewModal}
+      isOpen={display}
+      role="dialog"
+      toggle={toggle}
+      data-testid="review-modal"
+    >
       <ModalHeader charCode={215} closeAriaLabel="Close" tag="h5" wrapTag="div">
         Rivedi e invia
       </ModalHeader>
       <ModalBody>{JSON.stringify(jsonformsData)}</ModalBody>
       <ModalFooter>
-        <Button color="secondary" onClick={toggle}>
+        <Button
+          color="secondary"
+          onClick={toggle}
+          data-testid="close-review-modal"
+        >
           Chiudi
         </Button>
         <Button color="primary">Invia</Button>
