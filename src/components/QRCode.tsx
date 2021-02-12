@@ -7,16 +7,16 @@ import {
   ModalBody,
   ModalFooter,
 } from "design-react-kit";
-import styled from "styled-components";
+import { createUseStyles } from "react-jss";
 import Types from "MyTypes";
 
-const ResponsiveSvgWrapper = styled.div`
-  & > svg {
-    display: block; /* svg is "inline" by default */
-    height: auto; /* reset height */
-    width: 100%; /* reset width */
-  }
-`;
+const useStyles = createUseStyles({
+  div: {
+    display: "block" /* svg is "inline" by default */,
+    height: "auto" /* reset height */,
+    width: "100%" /* reset width */,
+  },
+});
 
 interface Props extends Types.FormState {
   readonly toggle: () => void;
@@ -25,20 +25,30 @@ interface Props extends Types.FormState {
 
 const QRCode = ({ data, display, toggle }: Props): JSX.Element => {
   const str = JSON.stringify(data);
+  const classes = useStyles();
 
   return (
-    <Modal isOpen={display} toggle={toggle}>
+    <Modal
+      isOpen={display}
+      toggle={toggle}
+      role="dialog"
+      data-testid="qr-modal"
+    >
       <ModalHeader charCode={215} closeAriaLabel="Close" tag="h5" wrapTag="div">
         QRCode
       </ModalHeader>
       <ModalBody tag="div">
-        <ResponsiveSvgWrapper>
-          <Qr renderAs="svg" value={str} />
-        </ResponsiveSvgWrapper>
+        <Qr className={classes.div} renderAs="svg" value={str} />
       </ModalBody>
       <ModalFooter tag="div">
-        <Button color="secondary" icon={false} tag="button" onClick={toggle}>
-          Close
+        <Button
+          color="secondary"
+          icon={false}
+          tag="button"
+          onClick={toggle}
+          data-testid="close-qr-modal"
+        >
+          Chiudi
         </Button>
       </ModalFooter>
     </Modal>
