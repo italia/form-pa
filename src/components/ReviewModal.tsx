@@ -6,14 +6,12 @@ import {
   ModalFooter,
   Button,
 } from "design-react-kit";
-import { useSelector } from "react-redux";
-import Types from "MyTypes";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   reviewModal: {
-    margin: "0 !important",
-    minWidth: "100% !important",
+    // margin: "0 !important",
+    // minWidth: "100% !important",
   },
 });
 
@@ -24,9 +22,6 @@ interface Props {
 
 export const ReviewModal = ({ display, toggle }: Props): JSX.Element => {
   const classes = useStyles();
-  const jsonformsData = useSelector(
-    (state: Types.RootState) => state.form?.data
-  );
   return (
     <Modal
       className={classes.reviewModal}
@@ -36,16 +31,16 @@ export const ReviewModal = ({ display, toggle }: Props): JSX.Element => {
       data-testid="review-modal"
     >
       <ModalHeader charCode={215} closeAriaLabel="Close" tag="h5" wrapTag="div">
-        Rivedi e invia
+        Conferma invio
       </ModalHeader>
-      <ModalBody>{JSON.stringify(jsonformsData)}</ModalBody>
+      <ModalBody>I dati inseriti sono corretti?</ModalBody>
       <ModalFooter>
         <Button
           color="secondary"
           onClick={toggle}
           data-testid="close-review-modal"
         >
-          Chiudi
+          Modifica
         </Button>
         <Button color="primary">Invia</Button>
       </ModalFooter>
