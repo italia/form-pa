@@ -78,13 +78,7 @@ describe("buttons click handler", () => {
     );
 
     const { getByTestId } = render(<Footer />);
-    fireEvent(
-      getByTestId(resetButtonTestID),
-      new MouseEvent("click", {
-        bubbles: true,
-        cancelable: true,
-      })
-    );
+    userEvent.click(getByTestId(resetButtonTestID));
     expect(store.getState()).toEqual({ form: { data: {} } });
   });
 });
