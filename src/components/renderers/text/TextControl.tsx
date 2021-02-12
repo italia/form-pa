@@ -1,17 +1,32 @@
 import * as React from "react";
 import { withJsonFormsControlProps } from "@jsonforms/react";
-import { ControlElement } from "@jsonforms/core";
+import { ControlProps } from "@jsonforms/core";
 import { Input } from "design-react-kit";
 
-interface TextControlProps {
-  readonly uischema: ControlElement;
+interface TextControlProps extends ControlProps {
+  readonly data: string;
+  readonly path: string;
+  readonly handleChange: (path: string, value: string) => void;
 }
 
-const TextControl = ({ uischema }: TextControlProps) => {
-  const label = uischema.label?.toString();
+const TextControl = ({
+  label,
+  description,
+  data,
+  handleChange,
+  path,
+}: TextControlProps) => {
+  const labeld = label?.toString();
   return (
-    // <Text uischema={uischema} />
-    <Input label={label} type="text" placeholder={label} />
+    <Input
+      label={labeld}
+      type="text"
+      placeholder={description}
+      value={data || ""}
+      onChange={(v: React.ChangeEvent<HTMLInputElement>) =>
+        handleChange(path, v.target.value)
+      }
+    />
   );
 };
 

@@ -1,6 +1,6 @@
-import { rankWith, uiTypeIs } from "@jsonforms/core";
+import { isStringControl, rankWith } from "@jsonforms/core";
 
 export default rankWith(
   3, // increase rank as needed
-  uiTypeIs("string")
+  isStringControl
 );
