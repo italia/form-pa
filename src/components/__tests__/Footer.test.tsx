@@ -1,5 +1,4 @@
 import {
-  fireEvent,
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
@@ -13,13 +12,18 @@ import { setFormData } from "../../redux/actions";
 const saveButtonTestID = "review-modal-button";
 const qrButtonTestID = "qr-modal-button";
 const resetButtonTestID = "reset-button";
+const printButtonTestID = "print-button";
+
+const mockRef = React.createRef<HTMLDivElement>();
+const EmptyDiv=()=><div ref={mockRef}>Hello there!</div>;
 
 describe("render components", () => {
   it("renders form buttons", () => {
-    const { getByTestId } = render(<Footer />);
+    const { getByTestId } = render(<Footer formRef={mockRef}/>);
     expect(getByTestId(saveButtonTestID)).toBeInTheDocument();
     expect(getByTestId(resetButtonTestID)).toBeInTheDocument();
     expect(getByTestId(qrButtonTestID)).toBeInTheDocument();
+    expect(getByTestId(printButtonTestID)).toBeInTheDocument();
   });
 });
 
@@ -28,14 +32,14 @@ describe("render modals", () => {
   const qrModalTestID = "qr-modal";
 
   it("renders qr modal", async () => {
-    const { getByTestId } = render(<Footer />);
+    const { getByTestId } = render(<Footer formRef={mockRef}/>);
     const qrButton = getByTestId(qrButtonTestID);
     userEvent.click(qrButton);
     expect(await screen.findByTestId(qrModalTestID)).toBeInTheDocument();
   });
 
   it("closes the qr modal on Close button click", async () => {
-    render(<Footer />);
+    render(<Footer formRef={mockRef}/>);
     const qrButton = await screen.findByTestId(qrButtonTestID);
     userEvent.click(qrButton);
     expect(screen.queryByTestId(qrModalTestID)).toBeInTheDocument();
@@ -47,14 +51,14 @@ describe("render modals", () => {
   });
 
   it("renders review modal", async () => {
-    const { getByTestId } = render(<Footer />);
+    const { getByTestId } = render(<Footer formRef={mockRef}/>);
     const saveButton = getByTestId(saveButtonTestID);
     userEvent.click(saveButton);
     expect(await screen.findByTestId(reviewModalTestID)).toBeInTheDocument();
   });
 
   it("closes the review modal on Close button click", async () => {
-    render(<Footer />);
+    render(<Footer formRef={mockRef}/>);
     const saveButton = await screen.findByTestId(saveButtonTestID);
     userEvent.click(saveButton);
     expect(screen.queryByTestId(reviewModalTestID)).toBeInTheDocument();
@@ -77,7 +81,7 @@ describe("buttons click handler", () => {
       })
     );
 
-    const { getByTestId } = render(<Footer />);
+    const { getByTestId } = render(<Footer formRef={mockRef}/>);
     userEvent.click(getByTestId(resetButtonTestID));
     expect(store.getState()).toEqual({ form: { data: {} } });
   });

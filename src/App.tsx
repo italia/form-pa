@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { useRef } from "react";
+import React from "react";
 import "./App.css";
 
 import { Container } from "design-react-kit";
