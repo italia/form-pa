@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from "react";
+import React, { useRef } from "react";
 import "./App.css";
 
 import { Container } from "design-react-kit";
@@ -30,7 +30,7 @@ import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
 
 export const App = (): JSX.Element => {
-  const formRef = React.createRef<HTMLDivElement>();
+  const formRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="App">
