@@ -8266,6 +8266,13 @@ react-stickup@^1.11.0:
   dependencies:
     react-viewport-utils "^1.12.1"
 
+react-to-print@^2.12.3:
+  version "2.12.3"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.12.3.tgz#1468f2c7ee92c097a80da29150352cd72c8906f2"
+  integrity sha512-JpjPh2WDo2nraxgyt5p3kHMMZZDs52uDcgJJi7BbgmE/j3v1RcTtr3s3uvDk82WRjLWggDm1Ro2J9/L9qkH4cQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-transition-group@^2.3.1:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"

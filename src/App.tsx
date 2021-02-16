@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from "react";
+import React, { useRef } from "react";
 import "./App.css";
 
 import { Container } from "design-react-kit";
@@ -29,12 +29,18 @@ import "typeface-titillium-web/index.css";
 import "typeface-roboto-mono/index.css";
 import "typeface-lora/index.css";
 
-export const App = (): JSX.Element => (
-  <div className="App">
-    <HeaderBar className="App-header" />
-    <Container>
-      <Form />
-      <Footer />
-    </Container>
-  </div>
-);
+export const App = (): JSX.Element => {
+  const formRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="App">
+      <HeaderBar className="App-header" />
+      <Container>
+        <div ref={formRef}>
+          <Form />
+        </div>
+        <Footer formRef={formRef} />
+      </Container>
+    </div>
+  );
+};
