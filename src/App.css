@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  min-height: 10vh;
+  min-height: 6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.it-header-slim-wrapper .it-header-slim-wrapper-content a .icon{
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.spid-button-rounded {
+  margin: 0 !important;
 }

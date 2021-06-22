@@ -23,6 +23,7 @@ import { Container } from "design-react-kit";
 import { HeaderBar } from "./components/HeaderBar";
 import { Footer } from "./components/Footer";
 import { Form } from "./components/Form";
+import { TitleBar } from "./components/TitleBar";
 
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "typeface-titillium-web/index.css";
@@ -36,6 +37,7 @@ export const App = (): JSX.Element => {
     <div className="App">
       <HeaderBar className="App-header" />
       <Container>
+        <TitleBar />
         <div ref={formRef}>
           <Form />
         </div>
