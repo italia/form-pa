@@ -1,0 +1,68 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - document-management
+  - digital-citizenship
+dependsOn:
+  open:
+    - name: JsonForms
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: 2.5.0
+description:
+  it:
+    features:
+      - QR code generation
+    genericName: Web form suite
+    longDescription: |
+      FormPA evita l'esperienza dei PDF al cittadino trasformandoli in semplici
+      form WEB
+
+
+      E' un’applicazione open source facilmente installabile e configurabile
+      dalle amministrazioni pubbliche per creare form web in sostituzione dei
+      tradizionali PDF, finalizzata a semplificare l’esperienza dei cittadini.
+
+
+      FormPA è pensata per essere inserita in ambienti legacy, poiché si
+      focalizza sull’esperienza di compilazione della richiesta senza modificare
+      il flusso di backoffice che può rimanere gestito in modalità tradizionale.
+    shortDescription: |-
+      FormPA evita l'esperienza dei PDF al cittadino trasformandoli in semplici
+      form WEB
+developmentStatus: development
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: true
+  riuso:
+    codiceIPA: pcm
+legal:
+  license: AGPL-3.0-or-later
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - name: Alessandro Sebastiani
+  type: community
+name: Form PA
+platforms:
+  - web
+releaseDate: '2021-09-30'
+softwareType: standalone/web
+softwareVersion: v0.4.0
+url: 'https://github.com/italia/form-pa'
