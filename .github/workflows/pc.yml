@@ -17,7 +17,6 @@ jobs:
         uses: italia/publiccode-softwareversion-check-action@master
         id: pva
         with:
-          remoterepo: "https://github.com/italia/form-pa.git"
           remove: "FormPA-|build[0-9]+"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
