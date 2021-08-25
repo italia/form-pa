@@ -34,6 +34,8 @@ description:
     shortDescription: |-
       FormPA evita l'esperienza dei PDF al cittadino trasformandoli in semplici
       form WEB
+    screenshots:
+      - public/images/screen.png
 developmentStatus: development
 it:
   conforme:
