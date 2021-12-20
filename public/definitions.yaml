@@ -467,9 +467,7 @@ schemas:
         title: Località
         type: string
       province:
-        title: provincia
-        x-url: https://w3id.org/italia/onto/CLV/Province
-        type: string
+        $ref: "https://gist.githubusercontent.com/ioggstream/849641f339bb4e68bef2e78bf66fb733/raw/0d51cffe2763c48f5e42ca48d327fd222249ec66/province.yaml#/components/schemas/VocabolarioProvinceISTAT"
       country:
         title: stato
         x-url: https://w3id.org/italia/onto/CLV/Country
