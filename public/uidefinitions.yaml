@@ -112,6 +112,12 @@ uidefinitions:
           scope: "#/properties/richiedente/properties/birth_place/properties/province"
 
     - type: HorizontalLayout
+      elements:
+        - type: Control
+          label: Titolo di studio
+          scope: "#/properties/richiedente/properties/education_level"
+
+    - type: HorizontalLayout
       label: Residente in
       elements:
         - type: Control
