@@ -39,6 +39,14 @@ elements:
       scope: "#/properties/richiedente/properties/email"
     - type: Control
       scope: "#/properties/richiedente/properties/phone"
+
+  - type: HorizontalLayout
+    label: Titolo di studio
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/education_level"
+
+
 - type: Group
   label: ""
   elements:
