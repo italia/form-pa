@@ -11,6 +11,7 @@ elements:
     - type: Control
       scope: "#/properties/richiedente/properties/family_name"
     - type: Control
+      label: Sesso
       scope: "#/properties/richiedente/properties/sex"
 
   - type: HorizontalLayout
