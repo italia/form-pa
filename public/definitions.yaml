@@ -458,7 +458,7 @@ schemas:
     required:
       - city
       - province
-    properties:
+    properties: &place-properties
       city:
         title: città
         x-url: https://w3id.org/italia/onto/CLV/City
@@ -478,6 +478,7 @@ schemas:
       - city
       - province
     properties:
+      <<: *place-properties
       street:
         title: via
         type: string
@@ -485,21 +486,6 @@ schemas:
         title: cap
         type: string
         maxLength: 6  
-      city:
-        title: città
-        x-url: https://w3id.org/italia/onto/CLV/City
-        type: string
-      place:
-        title: Località
-        type: string
-      province:
-        title: provincia
-        x-url: https://w3id.org/italia/onto/CLV/Province
-        type: string
-      country:
-        title: stato
-        x-url: https://w3id.org/italia/onto/CLV/Country
-        type: string
   Parent:
     type: object
     required:
