@@ -10,6 +10,8 @@ elements:
       scope: "#/properties/richiedente/properties/given_name"
     - type: Control
       scope: "#/properties/richiedente/properties/family_name"
+    - type: Control
+      scope: "#/properties/richiedente/properties/sex"
 
   - type: HorizontalLayout
     elements:

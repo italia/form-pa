@@ -5,7 +5,11 @@ properties:
     richiedente:
         $ref: "definitions.yaml#/schemas/Person"
     documento_richiesto:
-        $ref: "https://gist.githubusercontent.com/ioggstream/a12b6e2acb3dde1562aa88ac8e4da807/raw/ecb6382c0bb575589aa78c65b45109f5c19755ad/vocab.yaml#/EducationLevelVocab"
+        type: string
+        enum:
+        - "residenza"
+        - "stato di famiglia"
+        - "altro"
     documento_richiesto_altro:
         type: string
         maxLength: 40

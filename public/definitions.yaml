@@ -359,10 +359,8 @@ schemas:
         $ref: 'definitions.yaml#/schemas/TaxCode'
       sex:
         title: sesso
-        type: string
-        enum:
-          - M
-          - F
+        oneOf:
+        - $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/human-sex?label_it=%ile#/SchemaVocabulary"
       citizenship:
         title: cittadinanza
         type: string
