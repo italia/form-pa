@@ -375,14 +375,7 @@ schemas:
       phone:
         type: string
   EducationLevel:
-    type: string
-    enum:
-      - <=Elementari
-      - Medie
-      - Diploma
-      - Laurea 3y
-      - Laurea
-      - PhD
+    $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/education-level#/SchemaVocabulary"
   Professione:
     properties:
       occupato:
