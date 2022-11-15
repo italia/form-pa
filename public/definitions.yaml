@@ -334,6 +334,26 @@ schemas:
     - amount
     type: object
   Person:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
+      birth_place: hasBirthPlace
+      tax_code: taxCode
+      sex: hasSex
+      citizenship:
+        "@id": hasCitizenship
+        "@type": "@id"
+        "@context":
+          "@base": "http://publications.europa.eu/resource/authority/country/"
+      education_level:
+        "@id": "hasLevelOfEducation"
+        "@type": "@id"
+        "@context":
+          "@base": "https://w3id.org/italia/controlled-vocabulary/classifications-for-people/education-level/"
+
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
     required:
@@ -360,8 +380,7 @@ schemas:
       sex:
         $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/human-sex?label_it=%ile#/SchemaVocabulary"
       citizenship:
-        title: cittadinanza
-        type: string
+        $ref: https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/country?schema_type=oneOfenum&limit=300
       education_level:
         $ref: 'definitions.yaml#/schemas/EducationLevel'
       work:
@@ -451,6 +470,7 @@ schemas:
 
   BirthPlace:
     title: Luogo di nascita
+    x-jsonld-type: https://w3id.org/italia/onto/l0/Location
     required:
       - city
       - province
@@ -470,6 +490,7 @@ schemas:
         type: string
   Residence:
     title: Residenza
+    x-jsonld-type: https://w3id.org/italia/onto/l0/Location
     required:
       - city
       - province
@@ -483,6 +504,12 @@ schemas:
         type: string
         maxLength: 6  
   Parent:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
     type: object
     required:
     - given_name
@@ -510,6 +537,13 @@ schemas:
       document:
         $ref: 'definitions.yaml#/schemas/IdentityDocument'
   PersonShort:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
+      tax_code: taxCode
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
     required:
