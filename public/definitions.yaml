@@ -334,6 +334,26 @@ schemas:
     - amount
     type: object
   Person:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
+      birth_place: hasBirthPlace
+      tax_code: taxCode
+      sex: hasSex
+      citizenship:
+        "@id": hasCitizenship
+        "@type": "@id"
+        "@context":
+          "@base": "http://publications.europa.eu/resource/authority/country/"
+      education_level:
+        "@id": "hasLevelOfEducation"
+        "@type": "@id"
+        "@context":
+          "@base": "https://w3id.org/italia/controlled-vocabulary/classifications-for-people/education-level/"
+
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
     required:
@@ -358,14 +378,9 @@ schemas:
       tax_code:
         $ref: 'definitions.yaml#/schemas/TaxCode'
       sex:
-        title: sesso
-        type: string
-        enum:
-          - M
-          - F
+        $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/human-sex?label_it=%ile#/SchemaVocabulary"
       citizenship:
-        title: cittadinanza
-        type: string
+        $ref: https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/country?schema_type=oneOfenum&limit=300
       education_level:
         $ref: 'definitions.yaml#/schemas/EducationLevel'
       work:
@@ -375,14 +390,7 @@ schemas:
       phone:
         type: string
   EducationLevel:
-    type: string
-    enum:
-      - <=Elementari
-      - Medie
-      - Diploma
-      - Laurea 3y
-      - Laurea
-      - PhD
+    $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/education-level#/SchemaVocabulary"
   Professione:
     properties:
       occupato:
@@ -462,10 +470,11 @@ schemas:
 
   BirthPlace:
     title: Luogo di nascita
+    x-jsonld-type: https://w3id.org/italia/onto/l0/Location
     required:
       - city
       - province
-    properties:
+    properties: &place-properties
       city:
         title: città
         x-url: https://w3id.org/italia/onto/CLV/City
@@ -474,19 +483,19 @@ schemas:
         title: Località
         type: string
       province:
-        title: provincia
-        x-url: https://w3id.org/italia/onto/CLV/Province
-        type: string
+        $ref: "https://gist.githubusercontent.com/ioggstream/849641f339bb4e68bef2e78bf66fb733/raw/0d51cffe2763c48f5e42ca48d327fd222249ec66/province.yaml#/components/schemas/VocabolarioProvinceISTAT"
       country:
         title: stato
         x-url: https://w3id.org/italia/onto/CLV/Country
         type: string
   Residence:
     title: Residenza
+    x-jsonld-type: https://w3id.org/italia/onto/l0/Location
     required:
       - city
       - province
     properties:
+      <<: *place-properties
       street:
         title: via
         type: string
@@ -494,22 +503,13 @@ schemas:
         title: cap
         type: string
         maxLength: 6  
-      city:
-        title: città
-        x-url: https://w3id.org/italia/onto/CLV/City
-        type: string
-      place:
-        title: Località
-        type: string
-      province:
-        title: provincia
-        x-url: https://w3id.org/italia/onto/CLV/Province
-        type: string
-      country:
-        title: stato
-        x-url: https://w3id.org/italia/onto/CLV/Country
-        type: string
   Parent:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
     type: object
     required:
     - given_name
@@ -537,6 +537,13 @@ schemas:
       document:
         $ref: 'definitions.yaml#/schemas/IdentityDocument'
   PersonShort:
+    x-jsonld-type: https://w3id.org/italia/onto/CPV/Person
+    x-jsonld-context:
+      "@vocab": "https://w3id.org/italia/onto/CPV/"
+      given_name: givenName
+      family_name: familyName
+      date_of_birth: dateOfBirth
+      tax_code: taxCode
     externalDocs:
       url: https://w3id.org/italia/onto/CPV
     required:
