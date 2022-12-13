@@ -375,7 +375,7 @@ schemas:
       phone:
         type: string
   EducationLevel:
-    $ref: "https://onto.robertopolli.it/vocabularies/v1/vocabularies-schema/education-level#/SchemaVocabulary"
+    $ref: "https://raw.githubusercontent.com/teamdigitale/openapi/master/other/vocabularies-schema/education-level.oas3.yaml#/SchemaVocabulary"
   Professione:
     properties:
       occupato:
