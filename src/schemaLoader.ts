@@ -7,8 +7,10 @@ import {
   materialRenderers,
   materialCells,
 } from "@jsonforms/material-renderers";
-import markdownControlTester from "./renderers/markdownControlTester";
-import MarkdownControl from "./renderers/MarkdownControl";
+import TextControl from "./components/renderers/text/TextControl";
+import textControlTester from "./components/renderers/text/textControlTester";
+import markdownControlTester from "./components/renderers/markdown/markdownControlTester";
+import MarkdownControl from "./components/renderers/markdown/MarkdownControl";
 
 const isYAML = process.env.YAML_SOURCE || true;
 
@@ -122,6 +124,7 @@ export const loadSchema = async (): Promise<JsonFormsInitStateProps> => {
     data: getDataFromURL(),
     renderers: [
       ...materialRenderers,
+      { renderer: TextControl, tester: textControlTester },
       { renderer: MarkdownControl, tester: markdownControlTester },
     ],
     schema: sc,
