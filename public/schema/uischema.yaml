@@ -10,6 +10,9 @@ elements:
       scope: "#/properties/richiedente/properties/given_name"
     - type: Control
       scope: "#/properties/richiedente/properties/family_name"
+    - type: Control
+      label: Sesso
+      scope: "#/properties/richiedente/properties/sex"
 
   - type: HorizontalLayout
     elements:
@@ -39,6 +42,14 @@ elements:
       scope: "#/properties/richiedente/properties/email"
     - type: Control
       scope: "#/properties/richiedente/properties/phone"
+
+  - type: HorizontalLayout
+    label: Titolo di studio
+    elements:
+    - type: Control
+      scope: "#/properties/richiedente/properties/education_level"
+
+
 - type: Group
   label: ""
   elements:
