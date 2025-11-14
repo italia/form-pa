@@ -65,7 +65,7 @@
     "bootstrap-italia": "^1.4.3",
     "design-react-kit": "^3.3.3",
     "gh-pages": "^5.0.0",
-    "js-yaml": "^4.0.0",
+    "js-yaml": "^4.1.1",
     "lodash.set": "^4.3.2",
     "qrcode.react": "^1.0.1",
     "react": "^17.0.2",
